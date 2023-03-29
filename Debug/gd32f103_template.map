@@ -680,7 +680,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_adc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_adc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_adc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_adc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_adc.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_adc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_adc.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_adc.o
@@ -791,7 +791,7 @@ Discarded input sections
                 0x0000000000000000       0x18 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .text.bkp_interrupt_flag_clear
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_bkp.o
- .debug_info    0x0000000000000000      0xd12 ./System/Src/gd32f10x/gd32f10x_bkp.o
+ .debug_info    0x0000000000000000      0xd11 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_abbrev  0x0000000000000000      0x308 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_loc     0x0000000000000000      0x1c1 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_aranges
@@ -828,7 +828,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_bkp.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_bkp.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_bkp.o
@@ -846,7 +846,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_macro   0x0000000000000000      0x1a6 ./System/Src/gd32f10x/gd32f10x_bkp.o
- .debug_line    0x0000000000000000      0x81c ./System/Src/gd32f10x/gd32f10x_bkp.o
+ .debug_line    0x0000000000000000      0x81d ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_str     0x0000000000000000    0x29616 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_bkp.o
  .debug_frame   0x0000000000000000      0x138 ./System/Src/gd32f10x/gd32f10x_bkp.o
@@ -970,7 +970,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_can.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_can.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_can.o
@@ -1089,7 +1089,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_crc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_crc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_crc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_crc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_crc.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_crc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_crc.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_crc.o
@@ -1251,7 +1251,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_dac.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_dac.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_dac.o
@@ -1269,7 +1269,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_macro   0x0000000000000000      0x28f ./System/Src/gd32f10x/gd32f10x_dac.o
- .debug_line    0x0000000000000000      0xa0a ./System/Src/gd32f10x/gd32f10x_dac.o
+ .debug_line    0x0000000000000000      0xa09 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_str     0x0000000000000000    0x296cd ./System/Src/gd32f10x/gd32f10x_dac.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_dac.o
  .debug_frame   0x0000000000000000      0x1a8 ./System/Src/gd32f10x/gd32f10x_dac.o
@@ -1380,7 +1380,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_dbg.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_dbg.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_dbg.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_dbg.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_dbg.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_dbg.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_dbg.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_dbg.o
@@ -1547,7 +1547,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_dma.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_dma.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_dma.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_dma.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_dma.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_dma.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_dma.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_dma.o
@@ -1674,7 +1674,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_enet.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_enet.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_enet.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_enet.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_enet.o
  .debug_line    0x0000000000000000      0x574 ./System/Src/gd32f10x/gd32f10x_enet.o
  .debug_str     0x0000000000000000    0x291cc ./System/Src/gd32f10x/gd32f10x_enet.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_enet.o
@@ -1777,7 +1777,7 @@ Discarded input sections
                 0x0000000000000000       0x1e ./System/Src/gd32f10x/gd32f10x_exmc.o
  .text.exmc_interrupt_flag_clear
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_exmc.o
- .debug_info    0x0000000000000000     0x112f ./System/Src/gd32f10x/gd32f10x_exmc.o
+ .debug_info    0x0000000000000000     0x1131 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_abbrev  0x0000000000000000      0x2e0 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_loc     0x0000000000000000      0x518 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_aranges
@@ -1815,7 +1815,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_exmc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_exmc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000      0x79e ./System/Src/gd32f10x/gd32f10x_exmc.o
@@ -1832,7 +1832,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_macro   0x0000000000000000      0x544 ./System/Src/gd32f10x/gd32f10x_exmc.o
- .debug_line    0x0000000000000000      0xd34 ./System/Src/gd32f10x/gd32f10x_exmc.o
+ .debug_line    0x0000000000000000      0xd48 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_str     0x0000000000000000    0x29d01 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_exmc.o
  .debug_frame   0x0000000000000000      0x1b4 ./System/Src/gd32f10x/gd32f10x_exmc.o
@@ -1940,7 +1940,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_exti.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_exti.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_exti.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_exti.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_exti.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_exti.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_exti.o
  .debug_macro   0x0000000000000000      0x79e ./System/Src/gd32f10x/gd32f10x_exti.o
@@ -2112,7 +2112,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_fmc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_fmc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000      0x79e ./System/Src/gd32f10x/gd32f10x_fmc.o
@@ -2129,7 +2129,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_macro   0x0000000000000000      0x37c ./System/Src/gd32f10x/gd32f10x_fmc.o
- .debug_line    0x0000000000000000     0x10ee ./System/Src/gd32f10x/gd32f10x_fmc.o
+ .debug_line    0x0000000000000000     0x10ed ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_str     0x0000000000000000    0x295ce ./System/Src/gd32f10x/gd32f10x_fmc.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_fmc.o
  .debug_frame   0x0000000000000000      0x2b8 ./System/Src/gd32f10x/gd32f10x_fmc.o
@@ -2240,7 +2240,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_fwdgt.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_fwdgt.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_fwdgt.o
@@ -2369,7 +2369,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_gpio.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_gpio.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_gpio.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_gpio.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_gpio.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_gpio.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_gpio.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_gpio.o
@@ -2536,7 +2536,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_i2c.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_i2c.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_i2c.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_i2c.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_i2c.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_i2c.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_i2c.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_i2c.o
@@ -2641,7 +2641,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_it.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_it.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_it.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_it.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_it.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_it.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_it.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_it.o
@@ -2750,7 +2750,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_misc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_misc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_misc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_misc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_misc.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_misc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_misc.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_misc.o
@@ -2843,8 +2843,8 @@ Discarded input sections
                 0x0000000000000000       0x24 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .bss.reg_snap.7205
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_pmu.o
- .debug_info    0x0000000000000000      0xed5 ./System/Src/gd32f10x/gd32f10x_pmu.o
- .debug_abbrev  0x0000000000000000      0x327 ./System/Src/gd32f10x/gd32f10x_pmu.o
+ .debug_info    0x0000000000000000      0xed3 ./System/Src/gd32f10x/gd32f10x_pmu.o
+ .debug_abbrev  0x0000000000000000      0x2fa ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_loc     0x0000000000000000       0xbe ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_aranges
                 0x0000000000000000       0x78 ./System/Src/gd32f10x/gd32f10x_pmu.o
@@ -2881,7 +2881,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_pmu.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_pmu.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_pmu.o
@@ -2898,7 +2898,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_macro   0x0000000000000000       0xc4 ./System/Src/gd32f10x/gd32f10x_pmu.o
- .debug_line    0x0000000000000000      0x84b ./System/Src/gd32f10x/gd32f10x_pmu.o
+ .debug_line    0x0000000000000000      0x845 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_str     0x0000000000000000    0x29555 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_pmu.o
  .debug_frame   0x0000000000000000       0xd8 ./System/Src/gd32f10x/gd32f10x_pmu.o
@@ -3053,7 +3053,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_rcu.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_rcu.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_rcu.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_rcu.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_rcu.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_rcu.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_rcu.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_rcu.o
@@ -3150,7 +3150,7 @@ Discarded input sections
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .text.rtc_interrupt_disable
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_rtc.o
- .debug_info    0x0000000000000000      0xbef ./System/Src/gd32f10x/gd32f10x_rtc.o
+ .debug_info    0x0000000000000000      0xbed ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_abbrev  0x0000000000000000      0x2af ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_loc     0x0000000000000000      0x234 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_aranges
@@ -3188,7 +3188,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_rtc.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_rtc.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_rtc.o
@@ -3205,7 +3205,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_macro   0x0000000000000000       0xee ./System/Src/gd32f10x/gd32f10x_rtc.o
- .debug_line    0x0000000000000000      0x7ba ./System/Src/gd32f10x/gd32f10x_rtc.o
+ .debug_line    0x0000000000000000      0x7b9 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_str     0x0000000000000000    0x29399 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_rtc.o
  .debug_frame   0x0000000000000000      0x118 ./System/Src/gd32f10x/gd32f10x_rtc.o
@@ -3392,7 +3392,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_sdio.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_sdio.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_sdio.o
@@ -3409,7 +3409,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_macro   0x0000000000000000      0x5ff ./System/Src/gd32f10x/gd32f10x_sdio.o
- .debug_line    0x0000000000000000      0xbc8 ./System/Src/gd32f10x/gd32f10x_sdio.o
+ .debug_line    0x0000000000000000      0xbc6 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_str     0x0000000000000000    0x29722 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_sdio.o
  .debug_frame   0x0000000000000000      0x318 ./System/Src/gd32f10x/gd32f10x_sdio.o
@@ -3564,7 +3564,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_spi.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_spi.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_spi.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_spi.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_spi.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_spi.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_spi.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_spi.o
@@ -3776,7 +3776,7 @@ Discarded input sections
                 0x0000000000000000        0xe ./System/Src/gd32f10x/gd32f10x_timer.o
  .text.timer_flag_clear
                 0x0000000000000000        0x6 ./System/Src/gd32f10x/gd32f10x_timer.o
- .debug_info    0x0000000000000000     0x1f34 ./System/Src/gd32f10x/gd32f10x_timer.o
+ .debug_info    0x0000000000000000     0x1f33 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_abbrev  0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_loc     0x0000000000000000      0xeff ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_aranges
@@ -3814,7 +3814,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_timer.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_timer.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_timer.o
@@ -3831,7 +3831,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x30b ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000       0x70 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_macro   0x0000000000000000      0x969 ./System/Src/gd32f10x/gd32f10x_timer.o
- .debug_line    0x0000000000000000     0x18d8 ./System/Src/gd32f10x/gd32f10x_timer.o
+ .debug_line    0x0000000000000000     0x18cd ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_str     0x0000000000000000    0x29f8a ./System/Src/gd32f10x/gd32f10x_timer.o
  .comment       0x0000000000000000       0x69 ./System/Src/gd32f10x/gd32f10x_timer.o
  .debug_frame   0x0000000000000000      0x4d0 ./System/Src/gd32f10x/gd32f10x_timer.o
@@ -3974,8 +3974,8 @@ Discarded input sections
                 0x0000000000000000       0x34 ./System/Src/gd32f10x/gd32f10x_usart.o
  .text.usart_interrupt_flag_clear
                 0x0000000000000000       0x10 ./System/Src/gd32f10x/gd32f10x_usart.o
- .debug_info    0x0000000000000000     0x15d0 ./System/Src/gd32f10x/gd32f10x_usart.o
- .debug_abbrev  0x0000000000000000      0x327 ./System/Src/gd32f10x/gd32f10x_usart.o
+ .debug_info    0x0000000000000000     0x15ce ./System/Src/gd32f10x/gd32f10x_usart.o
+ .debug_abbrev  0x0000000000000000      0x345 ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_loc     0x0000000000000000      0x855 ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_aranges
                 0x0000000000000000      0x170 ./System/Src/gd32f10x/gd32f10x_usart.o
@@ -4012,7 +4012,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_usart.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_usart.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_usart.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_usart.o
@@ -4138,7 +4138,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/gd32f10x/gd32f10x_wwdgt.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/gd32f10x/gd32f10x_wwdgt.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/gd32f10x/gd32f10x_wwdgt.o
@@ -4259,7 +4259,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/diag/trace-impl.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/diag/trace-impl.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/diag/trace-impl.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/diag/trace-impl.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/diag/trace-impl.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/diag/trace-impl.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/diag/trace-impl.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/diag/trace-impl.o
@@ -4461,7 +4461,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/cortexm/exception-handlers.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/cortexm/exception-handlers.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/cortexm/exception-handlers.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/cortexm/exception-handlers.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/cortexm/exception-handlers.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/cortexm/exception-handlers.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/cortexm/exception-handlers.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/cortexm/exception-handlers.o
@@ -4575,7 +4575,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/cortexm/initialize-hardware.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/cortexm/initialize-hardware.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/cortexm/initialize-hardware.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/cortexm/initialize-hardware.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/cortexm/initialize-hardware.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/cortexm/initialize-hardware.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/cortexm/initialize-hardware.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/cortexm/initialize-hardware.o
@@ -4682,7 +4682,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/cortexm/reset-hardware.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/cortexm/reset-hardware.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/cortexm/reset-hardware.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/cortexm/reset-hardware.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/cortexm/reset-hardware.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/cortexm/reset-hardware.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/cortexm/reset-hardware.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/cortexm/reset-hardware.o
@@ -4787,7 +4787,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000000000       0x16 ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000000000       0x29 ./System/Src/CMSIS/system_gd32f10x.o
- .debug_macro   0x0000000000000000     0x1108 ./System/Src/CMSIS/system_gd32f10x.o
+ .debug_macro   0x0000000000000000     0x1107 ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000000000      0x54a ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000000000      0x33a ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000000000      0x382 ./System/Src/CMSIS/system_gd32f10x.o
@@ -4912,7 +4912,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./Src/gd32f10x_eval.o
  .debug_macro   0x0000000000000000       0x16 ./Src/gd32f10x_eval.o
  .debug_macro   0x0000000000000000       0x29 ./Src/gd32f10x_eval.o
- .debug_macro   0x0000000000000000     0x1108 ./Src/gd32f10x_eval.o
+ .debug_macro   0x0000000000000000     0x1107 ./Src/gd32f10x_eval.o
  .debug_macro   0x0000000000000000      0x54a ./Src/gd32f10x_eval.o
  .debug_macro   0x0000000000000000      0x33a ./Src/gd32f10x_eval.o
  .debug_macro   0x0000000000000000      0x382 ./Src/gd32f10x_eval.o
@@ -5145,7 +5145,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x339 ./Src/timer.o
  .debug_macro   0x0000000000000000       0x16 ./Src/timer.o
  .debug_macro   0x0000000000000000       0x29 ./Src/timer.o
- .debug_macro   0x0000000000000000     0x1108 ./Src/timer.o
+ .debug_macro   0x0000000000000000     0x1107 ./Src/timer.o
  .debug_macro   0x0000000000000000      0x54a ./Src/timer.o
  .debug_macro   0x0000000000000000      0x33a ./Src/timer.o
  .debug_macro   0x0000000000000000      0x382 ./Src/timer.o
@@ -6233,7 +6233,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000    0x10199
+.debug_info     0x0000000000000000    0x10196
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x9e7 ./System/Src/newlib/exit.o
  .debug_info    0x00000000000009e7      0x9d4 ./System/Src/newlib/sbrk.o
@@ -6241,19 +6241,19 @@ END GROUP
  .debug_info    0x0000000000001889      0xab9 ./System/Src/newlib/syscalls.o
  .debug_info    0x0000000000002342     0x17d4 ./System/Src/gd32f10x/gd32f10x_can.o
  .debug_info    0x0000000000003b16      0xc94 ./System/Src/gd32f10x/gd32f10x_exti.o
- .debug_info    0x00000000000047aa     0x106c ./System/Src/gd32f10x/gd32f10x_gpio.o
- .debug_info    0x0000000000005816      0xb04 ./System/Src/gd32f10x/gd32f10x_it.o
- .debug_info    0x000000000000631a      0xe72 ./System/Src/gd32f10x/gd32f10x_misc.o
- .debug_info    0x000000000000718c     0x16f4 ./System/Src/gd32f10x/gd32f10x_rcu.o
- .debug_info    0x0000000000008880      0xc52 ./System/Src/diag/trace-impl.o
- .debug_info    0x00000000000094d2      0xbdb ./System/Src/diag/trace.o
- .debug_info    0x000000000000a0ad     0x1287 ./System/Src/cortexm/exception-handlers.o
- .debug_info    0x000000000000b334      0xb8b ./System/Src/cortexm/initialize-hardware.o
- .debug_info    0x000000000000bebf      0xa7a ./System/Src/CMSIS/system_gd32f10x.o
- .debug_info    0x000000000000c939       0xce ./System/Src/CMSIS/vectors_gd32f10x.o
- .debug_info    0x000000000000ca07     0x1439 ./Src/gd32f10x_eval.o
- .debug_info    0x000000000000de40     0x1426 ./Src/main.o
- .debug_info    0x000000000000f266      0xf33 ./Src/timer.o
+ .debug_info    0x00000000000047aa     0x1069 ./System/Src/gd32f10x/gd32f10x_gpio.o
+ .debug_info    0x0000000000005813      0xb04 ./System/Src/gd32f10x/gd32f10x_it.o
+ .debug_info    0x0000000000006317      0xe72 ./System/Src/gd32f10x/gd32f10x_misc.o
+ .debug_info    0x0000000000007189     0x16f4 ./System/Src/gd32f10x/gd32f10x_rcu.o
+ .debug_info    0x000000000000887d      0xc52 ./System/Src/diag/trace-impl.o
+ .debug_info    0x00000000000094cf      0xbdb ./System/Src/diag/trace.o
+ .debug_info    0x000000000000a0aa     0x1287 ./System/Src/cortexm/exception-handlers.o
+ .debug_info    0x000000000000b331      0xb8b ./System/Src/cortexm/initialize-hardware.o
+ .debug_info    0x000000000000bebc      0xa7a ./System/Src/CMSIS/system_gd32f10x.o
+ .debug_info    0x000000000000c936       0xce ./System/Src/CMSIS/vectors_gd32f10x.o
+ .debug_info    0x000000000000ca04     0x1439 ./Src/gd32f10x_eval.o
+ .debug_info    0x000000000000de3d     0x1426 ./Src/main.o
+ .debug_info    0x000000000000f263      0xf33 ./Src/timer.o
 
 .debug_abbrev   0x0000000000000000     0x3170
  *(.debug_abbrev)
@@ -6277,27 +6277,27 @@ END GROUP
  .debug_abbrev  0x0000000000002b92      0x2f0 ./Src/main.o
  .debug_abbrev  0x0000000000002e82      0x2ee ./Src/timer.o
 
-.debug_line     0x0000000000000000     0x8b0f
+.debug_line     0x0000000000000000     0x8b14
  *(.debug_line)
  .debug_line    0x0000000000000000      0x405 ./System/Src/newlib/exit.o
  .debug_line    0x0000000000000405      0x3fa ./System/Src/newlib/sbrk.o
  .debug_line    0x00000000000007ff      0x61b ./System/Src/newlib/startup.o
  .debug_line    0x0000000000000e1a      0x509 ./System/Src/newlib/syscalls.o
- .debug_line    0x0000000000001323     0x1151 ./System/Src/gd32f10x/gd32f10x_can.o
- .debug_line    0x0000000000002474      0x77b ./System/Src/gd32f10x/gd32f10x_exti.o
- .debug_line    0x0000000000002bef      0xa2a ./System/Src/gd32f10x/gd32f10x_gpio.o
- .debug_line    0x0000000000003619      0x66a ./System/Src/gd32f10x/gd32f10x_it.o
- .debug_line    0x0000000000003c83      0x6ee ./System/Src/gd32f10x/gd32f10x_misc.o
- .debug_line    0x0000000000004371      0xdce ./System/Src/gd32f10x/gd32f10x_rcu.o
- .debug_line    0x000000000000513f      0x75d ./System/Src/diag/trace-impl.o
- .debug_line    0x000000000000589c      0x4e2 ./System/Src/diag/trace.o
- .debug_line    0x0000000000005d7e      0x93c ./System/Src/cortexm/exception-handlers.o
- .debug_line    0x00000000000066ba      0x5c2 ./System/Src/cortexm/initialize-hardware.o
- .debug_line    0x0000000000006c7c      0x7a2 ./System/Src/CMSIS/system_gd32f10x.o
- .debug_line    0x000000000000741e      0x135 ./System/Src/CMSIS/vectors_gd32f10x.o
- .debug_line    0x0000000000007553      0x6a0 ./Src/gd32f10x_eval.o
- .debug_line    0x0000000000007bf3      0x897 ./Src/main.o
- .debug_line    0x000000000000848a      0x685 ./Src/timer.o
+ .debug_line    0x0000000000001323     0x114d ./System/Src/gd32f10x/gd32f10x_can.o
+ .debug_line    0x0000000000002470      0x77b ./System/Src/gd32f10x/gd32f10x_exti.o
+ .debug_line    0x0000000000002beb      0xa2a ./System/Src/gd32f10x/gd32f10x_gpio.o
+ .debug_line    0x0000000000003615      0x66a ./System/Src/gd32f10x/gd32f10x_it.o
+ .debug_line    0x0000000000003c7f      0x6ee ./System/Src/gd32f10x/gd32f10x_misc.o
+ .debug_line    0x000000000000436d      0xdda ./System/Src/gd32f10x/gd32f10x_rcu.o
+ .debug_line    0x0000000000005147      0x75d ./System/Src/diag/trace-impl.o
+ .debug_line    0x00000000000058a4      0x4e2 ./System/Src/diag/trace.o
+ .debug_line    0x0000000000005d86      0x93c ./System/Src/cortexm/exception-handlers.o
+ .debug_line    0x00000000000066c2      0x5c2 ./System/Src/cortexm/initialize-hardware.o
+ .debug_line    0x0000000000006c84      0x7a2 ./System/Src/CMSIS/system_gd32f10x.o
+ .debug_line    0x0000000000007426      0x135 ./System/Src/CMSIS/vectors_gd32f10x.o
+ .debug_line    0x000000000000755b      0x6a0 ./Src/gd32f10x_eval.o
+ .debug_line    0x0000000000007bfb      0x895 ./Src/main.o
+ .debug_line    0x0000000000008490      0x684 ./Src/timer.o
 
 .debug_frame    0x0000000000000000     0x1184
  *(.debug_frame)
@@ -6432,7 +6432,7 @@ OUTPUT(gd32f103_template.elf elf32-littlearm)
  .debug_ranges  0x00000000000005a0       0x28 ./Src/main.o
  .debug_ranges  0x00000000000005c8       0x28 ./Src/timer.o
 
-.debug_macro    0x0000000000000000     0x67a5
+.debug_macro    0x0000000000000000     0x679c
  .debug_macro   0x0000000000000000      0x1b4 ./System/Src/newlib/exit.o
  .debug_macro   0x00000000000001b4      0x169 ./System/Src/newlib/sbrk.o
  .debug_macro   0x000000000000031d      0x174 ./System/Src/newlib/sbrk.o
@@ -6478,9 +6478,9 @@ OUTPUT(gd32f103_template.elf elf32-littlearm)
  .debug_macro   0x0000000000004993      0x265 ./System/Src/CMSIS/system_gd32f10x.o
  .debug_macro   0x0000000000004bf8       0x34 ./System/Src/CMSIS/vectors_gd32f10x.o
  .debug_macro   0x0000000000004c2c      0x24a ./Src/gd32f10x_eval.o
- .debug_macro   0x0000000000004e76      0x128 ./Src/gd32f10x_eval.o
- .debug_macro   0x0000000000004f9e      0x35d ./Src/main.o
- .debug_macro   0x00000000000052fb     0x110e ./Src/main.o
- .debug_macro   0x0000000000006409      0x12e ./Src/main.o
- .debug_macro   0x0000000000006537      0x25e ./Src/timer.o
- .debug_macro   0x0000000000006795       0x10 ./Src/timer.o
+ .debug_macro   0x0000000000004e76      0x124 ./Src/gd32f10x_eval.o
+ .debug_macro   0x0000000000004f9a      0x35d ./Src/main.o
+ .debug_macro   0x00000000000052f7     0x110d ./Src/main.o
+ .debug_macro   0x0000000000006404      0x12a ./Src/main.o
+ .debug_macro   0x000000000000652e      0x25e ./Src/timer.o
+ .debug_macro   0x000000000000678c       0x10 ./Src/timer.o

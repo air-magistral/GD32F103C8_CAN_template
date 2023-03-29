@@ -1,44 +1,43 @@
 /*!
-    \file    gd32f10x.h
-    \brief   general definitions for GD32F10x
+ \file    gd32f10x.h
+ \brief   general definitions for GD32F10x
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_H
 #define GD32F10X_H
 #define GD32F10X_MD
-
 
 #ifdef cplusplus
  extern "C" {
@@ -51,7 +50,7 @@ OF SUCH DAMAGE.
   /* #define GD32F10X_XD */     /*!< GD32F10X_XD: GD32 Extra density devices */
   /* #define GD32F10X_CL */     /*!< GD32F10X_CL: GD32 Connectivity line devices */  
 #endif /* define GD32F10x */
-   
+
 #if !defined (GD32F10X_MD) && !defined (GD32F10X_HD) && !defined (GD32F10X_XD) && !defined (GD32F10X_CL)
  #error "Please select the target GD32F10x device in gd32f10x.h file"
 #endif /* undefine GD32F10x tip */
@@ -105,65 +104,64 @@ OF SUCH DAMAGE.
 #define __NVIC_PRIO_BITS          4        /*!< GD32F10x uses 4 bits for the priority levels             */
 #define __Vendor_SysTickConfig    0        /*!< set to 1 if different sysTick config is used             */
 /* define interrupt number */
-typedef enum IRQn
-{
-    /* Cortex-M3 processor exceptions numbers */
-    NonMaskableInt_IRQn          = -14,    /*!< 2 non maskable interrupt                                 */
-    MemoryManagement_IRQn        = -12,    /*!< 4 Cortex-M3 memory management interrupt                  */
-    BusFault_IRQn                = -11,    /*!< 5 Cortex-M3 bus fault interrupt                          */
-    UsageFault_IRQn              = -10,    /*!< 6 Cortex-M3 usage fault interrupt                        */
-    SVCall_IRQn                  = -5,     /*!< 11 Cortex-M3 SV call interrupt                           */
-    DebugMonitor_IRQn            = -4,     /*!< 12 Cortex-M3 debug monitor interrupt                     */
-    PendSV_IRQn                  = -2,     /*!< 14 Cortex-M3 pend SV interrupt                           */
-    SysTick_IRQn                 = -1,     /*!< 15 Cortex-M3 system tick interrupt                       */
+typedef enum IRQn {
+	/* Cortex-M3 processor exceptions numbers */
+	NonMaskableInt_IRQn = -14, /*!< 2 non maskable interrupt                                 */
+	MemoryManagement_IRQn = -12, /*!< 4 Cortex-M3 memory management interrupt                  */
+	BusFault_IRQn = -11, /*!< 5 Cortex-M3 bus fault interrupt                          */
+	UsageFault_IRQn = -10, /*!< 6 Cortex-M3 usage fault interrupt                        */
+	SVCall_IRQn = -5, /*!< 11 Cortex-M3 SV call interrupt                           */
+	DebugMonitor_IRQn = -4, /*!< 12 Cortex-M3 debug monitor interrupt                     */
+	PendSV_IRQn = -2, /*!< 14 Cortex-M3 pend SV interrupt                           */
+	SysTick_IRQn = -1, /*!< 15 Cortex-M3 system tick interrupt                       */
 
-    /* interruput numbers */
-    WWDGT_IRQn                   = 0,      /*!< window watchDog timer interrupt                          */
-    LVD_IRQn                     = 1,      /*!< LVD through EXTI line detect interrupt                   */
-    TAMPER_IRQn                  = 2,      /*!< tamper through EXTI line detect                          */
-    RTC_IRQn                     = 3,      /*!< RTC through EXTI line interrupt                          */
-    FMC_IRQn                     = 4,      /*!< FMC interrupt                                            */
-    RCU_CTC_IRQn                 = 5,      /*!< RCU and CTC interrupt                                    */
-    EXTI0_IRQn                   = 6,      /*!< EXTI line 0 interrupts                                   */
-    EXTI1_IRQn                   = 7,      /*!< EXTI line 1 interrupts                                   */
-    EXTI2_IRQn                   = 8,      /*!< EXTI line 2 interrupts                                   */
-    EXTI3_IRQn                   = 9,      /*!< EXTI line 3 interrupts                                   */
-    EXTI4_IRQn                   = 10,     /*!< EXTI line 4 interrupts                                   */
-    DMA0_Channel0_IRQn           = 11,     /*!< DMA0 channel0 interrupt                                  */
-    DMA0_Channel1_IRQn           = 12,     /*!< DMA0 channel1 interrupt                                  */
-    DMA0_Channel2_IRQn           = 13,     /*!< DMA0 channel2 interrupt                                  */
-    DMA0_Channel3_IRQn           = 14,     /*!< DMA0 channel3 interrupt                                  */
-    DMA0_Channel4_IRQn           = 15,     /*!< DMA0 channel4 interrupt                                  */
-    DMA0_Channel5_IRQn           = 16,     /*!< DMA0 channel5 interrupt                                  */
-    DMA0_Channel6_IRQn           = 17,     /*!< DMA0 channel6 interrupt                                  */
-    ADC0_1_IRQn                  = 18,     /*!< ADC0 and ADC1 interrupt                                  */
+	/* interruput numbers */
+	WWDGT_IRQn = 0, /*!< window watchDog timer interrupt                          */
+	LVD_IRQn = 1, /*!< LVD through EXTI line detect interrupt                   */
+	TAMPER_IRQn = 2, /*!< tamper through EXTI line detect                          */
+	RTC_IRQn = 3, /*!< RTC through EXTI line interrupt                          */
+	FMC_IRQn = 4, /*!< FMC interrupt                                            */
+	RCU_CTC_IRQn = 5, /*!< RCU and CTC interrupt                                    */
+	EXTI0_IRQn = 6, /*!< EXTI line 0 interrupts                                   */
+	EXTI1_IRQn = 7, /*!< EXTI line 1 interrupts                                   */
+	EXTI2_IRQn = 8, /*!< EXTI line 2 interrupts                                   */
+	EXTI3_IRQn = 9, /*!< EXTI line 3 interrupts                                   */
+	EXTI4_IRQn = 10, /*!< EXTI line 4 interrupts                                   */
+	DMA0_Channel0_IRQn = 11, /*!< DMA0 channel0 interrupt                                  */
+	DMA0_Channel1_IRQn = 12, /*!< DMA0 channel1 interrupt                                  */
+	DMA0_Channel2_IRQn = 13, /*!< DMA0 channel2 interrupt                                  */
+	DMA0_Channel3_IRQn = 14, /*!< DMA0 channel3 interrupt                                  */
+	DMA0_Channel4_IRQn = 15, /*!< DMA0 channel4 interrupt                                  */
+	DMA0_Channel5_IRQn = 16, /*!< DMA0 channel5 interrupt                                  */
+	DMA0_Channel6_IRQn = 17, /*!< DMA0 channel6 interrupt                                  */
+	ADC0_1_IRQn = 18, /*!< ADC0 and ADC1 interrupt                                  */
 
 #ifdef GD32F10X_MD
-    USBD_HP_CAN0_TX_IRQn         = 19,     /*!< CAN0 TX interrupts                                       */
-    USBD_LP_CAN0_RX0_IRQn        = 20,     /*!< CAN0 RX0 interrupts                                      */
-    CAN0_RX1_IRQn                = 21,     /*!< CAN0 RX1 interrupts                                      */
-    CAN0_EWMC_IRQn               = 22,     /*!< CAN0 EWMC interrupts                                     */
-    EXTI5_9_IRQn                 = 23,     /*!< EXTI[9:5] interrupts                                     */
-    TIMER0_BRK_IRQn              = 24,     /*!< TIMER0 break interrupts                                  */
-    TIMER0_UP_IRQn               = 25,     /*!< TIMER0 update interrupts                                 */
-    TIMER0_TRG_CMT_IRQn          = 26,     /*!< TIMER0 trigger and commutation interrupts                */
-    TIMER0_Channel_IRQn          = 27,     /*!< TIMER0 channel capture compare interrupts                */
-    TIMER1_IRQn                  = 28,     /*!< TIMER1 interrupt                                         */
-    TIMER2_IRQn                  = 29,     /*!< TIMER2 interrupt                                         */
-    TIMER3_IRQn                  = 30,     /*!< TIMER3 interrupts                                        */
-    I2C0_EV_IRQn                 = 31,     /*!< I2C0 event interrupt                                     */
-    I2C0_ER_IRQn                 = 32,     /*!< I2C0 error interrupt                                     */
-    I2C1_EV_IRQn                 = 33,     /*!< I2C1 event interrupt                                     */
-    I2C1_ER_IRQn                 = 34,     /*!< I2C1 error interrupt                                     */
-    SPI0_IRQn                    = 35,     /*!< SPI0 interrupt                                           */
-    SPI1_IRQn                    = 36,     /*!< SPI1 interrupt                                           */
-    USART0_IRQn                  = 37,     /*!< USART0 interrupt                                         */
-    USART1_IRQn                  = 38,     /*!< USART1 interrupt                                         */
-    USART2_IRQn                  = 39,     /*!< USART2 interrupt                                         */
-    EXTI10_15_IRQn               = 40,     /*!< EXTI[15:10] interrupts                                   */
-    RTC_Alarm_IRQn               = 41,     /*!< RTC alarm interrupt                                      */
-    USBD_WKUP_IRQn               = 42,     /*!< USBD Wakeup interrupt                                    */
-    EXMC_IRQn                    = 48,     /*!< EXMC global interrupt                                    */
+	USBD_HP_CAN0_TX_IRQn = 19, /*!< CAN0 TX interrupts                                       */
+	USBD_LP_CAN0_RX0_IRQn = 20, /*!< CAN0 RX0 interrupts                                      */
+	CAN0_RX1_IRQn = 21, /*!< CAN0 RX1 interrupts                                      */
+	CAN0_EWMC_IRQn = 22, /*!< CAN0 EWMC interrupts                                     */
+	EXTI5_9_IRQn = 23, /*!< EXTI[9:5] interrupts                                     */
+	TIMER0_BRK_IRQn = 24, /*!< TIMER0 break interrupts                                  */
+	TIMER0_UP_IRQn = 25, /*!< TIMER0 update interrupts                                 */
+	TIMER0_TRG_CMT_IRQn = 26, /*!< TIMER0 trigger and commutation interrupts                */
+	TIMER0_Channel_IRQn = 27, /*!< TIMER0 channel capture compare interrupts                */
+	TIMER1_IRQn = 28, /*!< TIMER1 interrupt                                         */
+	TIMER2_IRQn = 29, /*!< TIMER2 interrupt                                         */
+	TIMER3_IRQn = 30, /*!< TIMER3 interrupts                                        */
+	I2C0_EV_IRQn = 31, /*!< I2C0 event interrupt                                     */
+	I2C0_ER_IRQn = 32, /*!< I2C0 error interrupt                                     */
+	I2C1_EV_IRQn = 33, /*!< I2C1 event interrupt                                     */
+	I2C1_ER_IRQn = 34, /*!< I2C1 error interrupt                                     */
+	SPI0_IRQn = 35, /*!< SPI0 interrupt                                           */
+	SPI1_IRQn = 36, /*!< SPI1 interrupt                                           */
+	USART0_IRQn = 37, /*!< USART0 interrupt                                         */
+	USART1_IRQn = 38, /*!< USART1 interrupt                                         */
+	USART2_IRQn = 39, /*!< USART2 interrupt                                         */
+	EXTI10_15_IRQn = 40, /*!< EXTI[15:10] interrupts                                   */
+	RTC_Alarm_IRQn = 41, /*!< RTC alarm interrupt                                      */
+	USBD_WKUP_IRQn = 42, /*!< USBD Wakeup interrupt                                    */
+	EXMC_IRQn = 48, /*!< EXMC global interrupt                                    */
 #endif /* GD32F10X_MD */
 
 #ifdef GD32F10X_HD
@@ -312,10 +310,16 @@ typedef enum IRQn
 #include <stdint.h>
 
 /* enum definitions */
-typedef enum {DISABLE = 0, ENABLE = !DISABLE} EventStatus, ControlStatus;
-typedef enum {FALSE = 0, TRUE = !FALSE} bool;
-typedef enum {RESET = 0, SET = !RESET} FlagStatus;
-typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrStatus;
+typedef enum {
+	DISABLE = 0, ENABLE = !DISABLE
+} EventStatus, ControlStatus;
+typedef enum {FALSE = 0, TRUE = !FALSE}bool;
+typedef enum {
+	RESET = 0, SET = !RESET
+} FlagStatus;
+typedef enum {
+	ERROR = 0, SUCCESS = !ERROR
+} ErrStatus;
 
 /* bit operations */
 #define REG32(addr)                  (*(volatile uint32_t *)(uint32_t)(addr))

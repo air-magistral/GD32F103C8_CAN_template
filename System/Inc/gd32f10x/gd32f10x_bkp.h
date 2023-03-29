@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_bkp.h
-    \brief   definitions for the BKP
+ \file    gd32f10x_bkp.h
+ \brief   definitions for the BKP
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_BKP_H
 #define GD32F10X_BKP_H
@@ -113,51 +113,50 @@ OF SUCH DAMAGE.
 
 /* constants definitions */
 /* BKP data register number */
-typedef enum 
-{
-    BKP_DATA_0 = 1,                                              /*!< BKP data register 0 */
-    BKP_DATA_1,                                                  /*!< BKP data register 1 */
-    BKP_DATA_2,                                                  /*!< BKP data register 2 */
-    BKP_DATA_3,                                                  /*!< BKP data register 3 */
-    BKP_DATA_4,                                                  /*!< BKP data register 4 */
-    BKP_DATA_5,                                                  /*!< BKP data register 5 */
-    BKP_DATA_6,                                                  /*!< BKP data register 6 */
-    BKP_DATA_7,                                                  /*!< BKP data register 7 */
-    BKP_DATA_8,                                                  /*!< BKP data register 8 */
-    BKP_DATA_9,                                                  /*!< BKP data register 9 */
-    BKP_DATA_10,                                                 /*!< BKP data register 10 */
-    BKP_DATA_11,                                                 /*!< BKP data register 11 */
-    BKP_DATA_12,                                                 /*!< BKP data register 12 */
-    BKP_DATA_13,                                                 /*!< BKP data register 13 */
-    BKP_DATA_14,                                                 /*!< BKP data register 14 */
-    BKP_DATA_15,                                                 /*!< BKP data register 15 */
-    BKP_DATA_16,                                                 /*!< BKP data register 16 */
-    BKP_DATA_17,                                                 /*!< BKP data register 17 */
-    BKP_DATA_18,                                                 /*!< BKP data register 18 */
-    BKP_DATA_19,                                                 /*!< BKP data register 19 */
-    BKP_DATA_20,                                                 /*!< BKP data register 20 */
-    BKP_DATA_21,                                                 /*!< BKP data register 21 */
-    BKP_DATA_22,                                                 /*!< BKP data register 22 */
-    BKP_DATA_23,                                                 /*!< BKP data register 23 */
-    BKP_DATA_24,                                                 /*!< BKP data register 24 */
-    BKP_DATA_25,                                                 /*!< BKP data register 25 */
-    BKP_DATA_26,                                                 /*!< BKP data register 26 */
-    BKP_DATA_27,                                                 /*!< BKP data register 27 */
-    BKP_DATA_28,                                                 /*!< BKP data register 28 */
-    BKP_DATA_29,                                                 /*!< BKP data register 29 */
-    BKP_DATA_30,                                                 /*!< BKP data register 30 */
-    BKP_DATA_31,                                                 /*!< BKP data register 31 */
-    BKP_DATA_32,                                                 /*!< BKP data register 32 */
-    BKP_DATA_33,                                                 /*!< BKP data register 33 */
-    BKP_DATA_34,                                                 /*!< BKP data register 34 */
-    BKP_DATA_35,                                                 /*!< BKP data register 35 */
-    BKP_DATA_36,                                                 /*!< BKP data register 36 */
-    BKP_DATA_37,                                                 /*!< BKP data register 37 */
-    BKP_DATA_38,                                                 /*!< BKP data register 38 */
-    BKP_DATA_39,                                                 /*!< BKP data register 39 */
-    BKP_DATA_40,                                                 /*!< BKP data register 40 */
-    BKP_DATA_41,                                                 /*!< BKP data register 41 */
-}bkp_data_register_enum;
+typedef enum {
+	BKP_DATA_0 = 1, /*!< BKP data register 0 */
+	BKP_DATA_1, /*!< BKP data register 1 */
+	BKP_DATA_2, /*!< BKP data register 2 */
+	BKP_DATA_3, /*!< BKP data register 3 */
+	BKP_DATA_4, /*!< BKP data register 4 */
+	BKP_DATA_5, /*!< BKP data register 5 */
+	BKP_DATA_6, /*!< BKP data register 6 */
+	BKP_DATA_7, /*!< BKP data register 7 */
+	BKP_DATA_8, /*!< BKP data register 8 */
+	BKP_DATA_9, /*!< BKP data register 9 */
+	BKP_DATA_10, /*!< BKP data register 10 */
+	BKP_DATA_11, /*!< BKP data register 11 */
+	BKP_DATA_12, /*!< BKP data register 12 */
+	BKP_DATA_13, /*!< BKP data register 13 */
+	BKP_DATA_14, /*!< BKP data register 14 */
+	BKP_DATA_15, /*!< BKP data register 15 */
+	BKP_DATA_16, /*!< BKP data register 16 */
+	BKP_DATA_17, /*!< BKP data register 17 */
+	BKP_DATA_18, /*!< BKP data register 18 */
+	BKP_DATA_19, /*!< BKP data register 19 */
+	BKP_DATA_20, /*!< BKP data register 20 */
+	BKP_DATA_21, /*!< BKP data register 21 */
+	BKP_DATA_22, /*!< BKP data register 22 */
+	BKP_DATA_23, /*!< BKP data register 23 */
+	BKP_DATA_24, /*!< BKP data register 24 */
+	BKP_DATA_25, /*!< BKP data register 25 */
+	BKP_DATA_26, /*!< BKP data register 26 */
+	BKP_DATA_27, /*!< BKP data register 27 */
+	BKP_DATA_28, /*!< BKP data register 28 */
+	BKP_DATA_29, /*!< BKP data register 29 */
+	BKP_DATA_30, /*!< BKP data register 30 */
+	BKP_DATA_31, /*!< BKP data register 31 */
+	BKP_DATA_32, /*!< BKP data register 32 */
+	BKP_DATA_33, /*!< BKP data register 33 */
+	BKP_DATA_34, /*!< BKP data register 34 */
+	BKP_DATA_35, /*!< BKP data register 35 */
+	BKP_DATA_36, /*!< BKP data register 36 */
+	BKP_DATA_37, /*!< BKP data register 37 */
+	BKP_DATA_38, /*!< BKP data register 38 */
+	BKP_DATA_39, /*!< BKP data register 39 */
+	BKP_DATA_40, /*!< BKP data register 40 */
+	BKP_DATA_41, /*!< BKP data register 41 */
+} bkp_data_register_enum;
 
 /* BKP register */
 #define BKP_DATA0_9(number)             REG16((BKP) + 0x04U + (number) * 0x04U)

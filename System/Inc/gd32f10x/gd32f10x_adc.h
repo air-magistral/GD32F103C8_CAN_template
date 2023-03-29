@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_adc.h
-    \brief   definitions for the ADC
+ \file    gd32f10x_adc.h
+ \brief   definitions for the ADC
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10x_ADC_H
 #define GD32F10x_ADC_H
@@ -288,7 +288,8 @@ void adc_deinit(uint32_t adc_periph);
 /* configure the ADC sync mode */
 void adc_mode_config(uint32_t mode);
 /* enable or disable ADC special function */
-void adc_special_function_config(uint32_t adc_periph, uint32_t function, ControlStatus newvalue);
+void adc_special_function_config(uint32_t adc_periph, uint32_t function,
+		ControlStatus newvalue);
 /* configure ADC data alignment */
 void adc_data_alignment_config(uint32_t adc_periph, uint32_t data_alignment);
 /* enable ADC interface */
@@ -310,23 +311,31 @@ void adc_dma_mode_disable(uint32_t adc_periph);
 
 /* regular group and inserted group config */
 /* configure ADC discontinuous mode */
-void adc_discontinuous_mode_config(uint32_t adc_periph, uint8_t adc_channel_group, uint8_t length);
+void adc_discontinuous_mode_config(uint32_t adc_periph,
+		uint8_t adc_channel_group, uint8_t length);
 
 /* configure the length of regular channel group or inserted channel group */
-void adc_channel_length_config(uint32_t adc_periph, uint8_t adc_channel_group, uint32_t length);
+void adc_channel_length_config(uint32_t adc_periph, uint8_t adc_channel_group,
+		uint32_t length);
 /* configure ADC regular channel */
-void adc_regular_channel_config(uint32_t adc_periph, uint8_t rank, uint8_t adc_channel, uint32_t sample_time);
+void adc_regular_channel_config(uint32_t adc_periph, uint8_t rank,
+		uint8_t adc_channel, uint32_t sample_time);
 /* configure ADC inserted channel */
-void adc_inserted_channel_config(uint32_t adc_periph, uint8_t rank, uint8_t adc_channel, uint32_t sample_time);
+void adc_inserted_channel_config(uint32_t adc_periph, uint8_t rank,
+		uint8_t adc_channel, uint32_t sample_time);
 /* configure ADC inserted channel offset */
-void adc_inserted_channel_offset_config(uint32_t adc_periph, uint8_t inserted_channel, uint16_t offset);
+void adc_inserted_channel_offset_config(uint32_t adc_periph,
+		uint8_t inserted_channel, uint16_t offset);
 
 /* configure ADC external trigger source */
-void adc_external_trigger_source_config(uint32_t adc_periph, uint8_t adc_channel_group, uint32_t external_trigger_source);
+void adc_external_trigger_source_config(uint32_t adc_periph,
+		uint8_t adc_channel_group, uint32_t external_trigger_source);
 /* configure ADC external trigger */
-void adc_external_trigger_config(uint32_t adc_periph, uint8_t adc_channel_group, ControlStatus newvalue);
+void adc_external_trigger_config(uint32_t adc_periph, uint8_t adc_channel_group,
+		ControlStatus newvalue);
 /* enable ADC software trigger */
-void adc_software_trigger_enable(uint32_t adc_periph, uint8_t adc_channel_group);
+void adc_software_trigger_enable(uint32_t adc_periph,
+		uint8_t adc_channel_group);
 
 /* get channel data */
 /* read ADC regular group data register */
@@ -338,13 +347,16 @@ uint32_t adc_sync_mode_convert_value_read(void);
 
 /* watchdog config */
 /* configure ADC analog watchdog single channel */
-void adc_watchdog_single_channel_enable(uint32_t adc_periph, uint8_t adc_channel);
+void adc_watchdog_single_channel_enable(uint32_t adc_periph,
+		uint8_t adc_channel);
 /* configure ADC analog watchdog group channel */
-void adc_watchdog_group_channel_enable(uint32_t adc_periph, uint8_t adc_channel_group);
+void adc_watchdog_group_channel_enable(uint32_t adc_periph,
+		uint8_t adc_channel_group);
 /* disable ADC analog watchdog */
 void adc_watchdog_disable(uint32_t adc_periph);
 /* configure ADC analog watchdog threshold */
-void adc_watchdog_threshold_config(uint32_t adc_periph, uint16_t low_threshold, uint16_t high_threshold);
+void adc_watchdog_threshold_config(uint32_t adc_periph, uint16_t low_threshold,
+		uint16_t high_threshold);
 
 /* interrupt & flag functions */
 /* get the ADC flag bits */

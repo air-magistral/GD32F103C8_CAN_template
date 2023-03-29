@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_usart.h
-    \brief   definitions for the USART 
+ \file    gd32f10x_usart.h
+ \brief   definitions for the USART
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.1, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.1, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_USART_H
 #define GD32F10X_USART_H
@@ -137,55 +137,63 @@ OF SUCH DAMAGE.
 #define USART_CTL2_REG_OFFSET                     (0x00000014U)        /*!< CTL2 register offset */
 
 /* USART flags */
-typedef enum
-{
-    /* flags in STAT register */
-    USART_FLAG_CTSF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 9U),      /*!< CTS change flag */
-    USART_FLAG_LBDF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 8U),      /*!< LIN break detected flag */
-    USART_FLAG_TBE = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 7U),       /*!< transmit data buffer empty */
-    USART_FLAG_TC = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 6U),        /*!< transmission complete */
-    USART_FLAG_RBNE = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 5U),      /*!< read data buffer not empty */
-    USART_FLAG_IDLEF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 4U),     /*!< IDLE frame detected flag */
-    USART_FLAG_ORERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 3U),     /*!< overrun error */
-    USART_FLAG_NERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 2U),      /*!< noise error flag */
-    USART_FLAG_FERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 1U),      /*!< frame error flag */
-    USART_FLAG_PERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 0U),      /*!< parity error flag */
-}usart_flag_enum;
+typedef enum {
+	/* flags in STAT register */
+	USART_FLAG_CTSF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 9U), /*!< CTS change flag */
+	USART_FLAG_LBDF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 8U), /*!< LIN break detected flag */
+	USART_FLAG_TBE = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 7U), /*!< transmit data buffer empty */
+	USART_FLAG_TC = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 6U), /*!< transmission complete */
+	USART_FLAG_RBNE = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 5U), /*!< read data buffer not empty */
+	USART_FLAG_IDLEF = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 4U), /*!< IDLE frame detected flag */
+	USART_FLAG_ORERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 3U), /*!< overrun error */
+	USART_FLAG_NERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 2U), /*!< noise error flag */
+	USART_FLAG_FERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 1U), /*!< frame error flag */
+	USART_FLAG_PERR = USART_REGIDX_BIT(USART_STAT_REG_OFFSET, 0U), /*!< parity error flag */
+} usart_flag_enum;
 
 /* USART interrupt flags */
-typedef enum
-{
-    /* interrupt flags in CTL0 register */
-    USART_INT_FLAG_PERR = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 8U, USART_STAT_REG_OFFSET, 0U),       /*!< parity error interrupt and flag */
-    USART_INT_FLAG_TBE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 7U, USART_STAT_REG_OFFSET, 7U),        /*!< transmitter buffer empty interrupt and flag */
-    USART_INT_FLAG_TC = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 6U, USART_STAT_REG_OFFSET, 6U),         /*!< transmission complete interrupt and flag */
-    USART_INT_FLAG_RBNE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 5U, USART_STAT_REG_OFFSET, 5U),       /*!< read data buffer not empty interrupt and flag */
-    USART_INT_FLAG_RBNE_ORERR = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 5U, USART_STAT_REG_OFFSET, 3U), /*!< read data buffer not empty interrupt and overrun error flag */
-    USART_INT_FLAG_IDLE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 4U, USART_STAT_REG_OFFSET, 4U),       /*!< IDLE line detected interrupt and flag */
-    /* interrupt flags in CTL1 register */
-    USART_INT_FLAG_LBD = USART_REGIDX_BIT2(USART_CTL1_REG_OFFSET, 6U, USART_STAT_REG_OFFSET, 8U),        /*!< LIN break detected interrupt and flag */
-    /* interrupt flags in CTL2 register */
-    USART_INT_FLAG_CTS = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 10U, USART_STAT_REG_OFFSET, 9U),       /*!< CTS interrupt and flag */
-    USART_INT_FLAG_ERR_ORERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U, USART_STAT_REG_OFFSET, 3U),  /*!< error interrupt and overrun error */
-    USART_INT_FLAG_ERR_NERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U, USART_STAT_REG_OFFSET, 2U),   /*!< error interrupt and noise error flag */
-    USART_INT_FLAG_ERR_FERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U, USART_STAT_REG_OFFSET, 1U),   /*!< error interrupt and frame error flag */
-}usart_interrupt_flag_enum;
+typedef enum {
+	/* interrupt flags in CTL0 register */
+	USART_INT_FLAG_PERR = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 8U,
+			USART_STAT_REG_OFFSET, 0U), /*!< parity error interrupt and flag */
+	USART_INT_FLAG_TBE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 7U,
+			USART_STAT_REG_OFFSET, 7U), /*!< transmitter buffer empty interrupt and flag */
+	USART_INT_FLAG_TC = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 6U,
+			USART_STAT_REG_OFFSET, 6U), /*!< transmission complete interrupt and flag */
+	USART_INT_FLAG_RBNE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 5U,
+			USART_STAT_REG_OFFSET, 5U), /*!< read data buffer not empty interrupt and flag */
+	USART_INT_FLAG_RBNE_ORERR = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 5U,
+			USART_STAT_REG_OFFSET, 3U), /*!< read data buffer not empty interrupt and overrun error flag */
+	USART_INT_FLAG_IDLE = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 4U,
+			USART_STAT_REG_OFFSET, 4U), /*!< IDLE line detected interrupt and flag */
+	/* interrupt flags in CTL1 register */
+	USART_INT_FLAG_LBD = USART_REGIDX_BIT2(USART_CTL1_REG_OFFSET, 6U,
+			USART_STAT_REG_OFFSET, 8U), /*!< LIN break detected interrupt and flag */
+	/* interrupt flags in CTL2 register */
+	USART_INT_FLAG_CTS = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 10U,
+			USART_STAT_REG_OFFSET, 9U), /*!< CTS interrupt and flag */
+	USART_INT_FLAG_ERR_ORERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U,
+			USART_STAT_REG_OFFSET, 3U), /*!< error interrupt and overrun error */
+	USART_INT_FLAG_ERR_NERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U,
+			USART_STAT_REG_OFFSET, 2U), /*!< error interrupt and noise error flag */
+	USART_INT_FLAG_ERR_FERR = USART_REGIDX_BIT2(USART_CTL2_REG_OFFSET, 0U,
+			USART_STAT_REG_OFFSET, 1U), /*!< error interrupt and frame error flag */
+} usart_interrupt_flag_enum;
 
 /* USART interrupt enable or disable */
-typedef enum
-{
-    /* interrupt in CTL0 register */
-    USART_INT_PERR = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 8U),        /*!< parity error interrupt */
-    USART_INT_TBE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 7U),         /*!< transmitter buffer empty interrupt */
-    USART_INT_TC = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 6U),          /*!< transmission complete interrupt */
-    USART_INT_RBNE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 5U),        /*!< read data buffer not empty interrupt and overrun error interrupt */
-    USART_INT_IDLE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 4U),        /*!< IDLE line detected interrupt */
-    /* interrupt in CTL1 register */
-    USART_INT_LBD = USART_REGIDX_BIT(USART_CTL1_REG_OFFSET, 6U),         /*!< LIN break detected interrupt */
-    /* interrupt in CTL2 register */
-    USART_INT_CTS = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 10U),        /*!< CTS interrupt */
-    USART_INT_ERR = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 0U),         /*!< error interrupt */
-}usart_interrupt_enum;
+typedef enum {
+	/* interrupt in CTL0 register */
+	USART_INT_PERR = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 8U), /*!< parity error interrupt */
+	USART_INT_TBE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 7U), /*!< transmitter buffer empty interrupt */
+	USART_INT_TC = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 6U), /*!< transmission complete interrupt */
+	USART_INT_RBNE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 5U), /*!< read data buffer not empty interrupt and overrun error interrupt */
+	USART_INT_IDLE = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 4U), /*!< IDLE line detected interrupt */
+	/* interrupt in CTL1 register */
+	USART_INT_LBD = USART_REGIDX_BIT(USART_CTL1_REG_OFFSET, 6U), /*!< LIN break detected interrupt */
+	/* interrupt in CTL2 register */
+	USART_INT_CTS = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 10U), /*!< CTS interrupt */
+	USART_INT_ERR = USART_REGIDX_BIT(USART_CTL2_REG_OFFSET, 0U), /*!< error interrupt */
+} usart_interrupt_enum;
 
 /* configure USART receiver */
 #define CTL0_REN(regval)              (BIT(2) & ((uint32_t)(regval) << 2))
@@ -306,7 +314,8 @@ void usart_lin_mode_enable(uint32_t usart_periph);
 /* disable LIN mode */
 void usart_lin_mode_disable(uint32_t usart_periph);
 /* configure LIN break frame length */
-void usart_lin_break_detection_length_config(uint32_t usart_periph, uint32_t lblen);
+void usart_lin_break_detection_length_config(uint32_t usart_periph,
+		uint32_t lblen);
 /* send break frame */
 void usart_send_break(uint32_t usart_periph);
 
@@ -322,11 +331,12 @@ void usart_synchronous_clock_enable(uint32_t usart_periph);
 /* disable CK pin in synchronous mode */
 void usart_synchronous_clock_disable(uint32_t usart_periph);
 /* configure usart synchronous mode parameters */
-void usart_synchronous_clock_config(uint32_t usart_periph, uint32_t clen, uint32_t cph, uint32_t cpl);
+void usart_synchronous_clock_config(uint32_t usart_periph, uint32_t clen,
+		uint32_t cph, uint32_t cpl);
 
 /* smartcard communication */
 /* configure guard time value in smartcard mode */
-void usart_guard_time_config(uint32_t usart_periph,uint8_t gaut);
+void usart_guard_time_config(uint32_t usart_periph, uint8_t gaut);
 /* enable smartcard mode */
 void usart_smartcard_mode_enable(uint32_t usart_periph);
 /* disable smartcard mode */

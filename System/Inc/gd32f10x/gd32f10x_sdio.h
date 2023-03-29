@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_sdio.h
-    \brief   definitions for the SDIO 
+ \file    gd32f10x_sdio.h
+ \brief   definitions for the SDIO
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_SDIO_H
 #define GD32F10X_SDIO_H
@@ -330,7 +330,8 @@ OF SUCH DAMAGE.
 /* deinitialize the SDIO */
 void sdio_deinit(void);
 /* configure the SDIO clock */
-void sdio_clock_config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t clock_powersave, uint16_t clock_division);
+void sdio_clock_config(uint32_t clock_edge, uint32_t clock_bypass,
+		uint32_t clock_powersave, uint16_t clock_division);
 /* enable hardware clock control */
 void sdio_hardware_clock_enable(void);
 /* disable hardware clock control */
@@ -348,7 +349,8 @@ void sdio_clock_disable(void);
 
 /* configure the command index, argument, response type, wait type and CSM to send command functions */
 /* configure the command and response */
-void sdio_command_response_config(uint32_t cmd_index, uint32_t cmd_argument, uint32_t response_type);
+void sdio_command_response_config(uint32_t cmd_index, uint32_t cmd_argument,
+		uint32_t response_type);
 /* set the command state machine wait type */
 void sdio_wait_type_set(uint32_t wait_type);
 /* enable the CSM(command state machine) */
@@ -362,9 +364,11 @@ uint32_t sdio_response_get(uint32_t responsex);
 
 /* configure the data timeout, length, block size, transfer mode, direction and DSM for data transfer functions */
 /* configure the data timeout, data length and data block size */
-void sdio_data_config(uint32_t data_timeout, uint32_t data_length, uint32_t data_blocksize);
+void sdio_data_config(uint32_t data_timeout, uint32_t data_length,
+		uint32_t data_blocksize);
 /* configure the data transfer mode and direction */
-void sdio_data_transfer_config(uint32_t transfer_mode, uint32_t transfer_direction);
+void sdio_data_transfer_config(uint32_t transfer_mode,
+		uint32_t transfer_direction);
 /* enable the DSM(data state machine) for data transfer */
 void sdio_dsm_enable(void);
 /* disable the DSM(data state machine) */

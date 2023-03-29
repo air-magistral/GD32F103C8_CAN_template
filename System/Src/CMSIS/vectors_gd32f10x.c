@@ -26,7 +26,6 @@
  */
 
 // ----------------------------------------------------------------------------
-
 #include "cortexm/exception-handlers.h"
 
 // ----------------------------------------------------------------------------
@@ -171,13 +170,12 @@ USBD_WKUP_IRQHandler(void);
 void __attribute__ ((weak, alias ("Default_Handler")))
 EXMC_IRQHandler(void);
 
-
 // ----------------------------------------------------------------------------
 
 extern unsigned int _estack;
 
 typedef void
-(* const pHandler)(void);
+(*const pHandler)(void);
 
 // ----------------------------------------------------------------------------
 
@@ -185,95 +183,91 @@ typedef void
 // This relies on the linker script to place at correct location in memory.
 
 __attribute__ ((section(".isr_vector"),used))
-pHandler __isr_vectors[] =
-  { //
-    (pHandler) &_estack,                          // The initial stack pointer
-        Reset_Handler,                            // The reset handler
+pHandler __isr_vectors[] = { //
+		(pHandler) &_estack,                        // The initial stack pointer
+				Reset_Handler,                            // The reset handler
 
-        NMI_Handler,                              // The NMI handler
-        HardFault_Handler,                        // The hard fault handler
+				NMI_Handler,                              // The NMI handler
+				HardFault_Handler,                     // The hard fault handler
 
 #if defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__)
-        MemManage_Handler,                        // The MPU fault handler
-        BusFault_Handler,// The bus fault handler
-        UsageFault_Handler,// The usage fault handler
+				MemManage_Handler,                      // The MPU fault handler
+				BusFault_Handler,                       // The bus fault handler
+				UsageFault_Handler,                   // The usage fault handler
 #else
         0, 0, 0,				  // Reserved
 #endif
-        0,                                        // Reserved
-        0,                                        // Reserved
-        0,                                        // Reserved
-        0,                                        // Reserved
-        SVC_Handler,                              // SVCall handler
+				0,                                        // Reserved
+				0,                                        // Reserved
+				0,                                        // Reserved
+				0,                                        // Reserved
+				SVC_Handler,                              // SVCall handler
 #if defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__)
-        DebugMon_Handler,                         // Debug monitor handler
+				DebugMon_Handler,                       // Debug monitor handler
 #else
         0,					  // Reserved
 #endif
-        0,                                        // Reserved
-        PendSV_Handler,                           // The PendSV handler
-        SysTick_Handler,                          // The SysTick handler
+				0,                                        // Reserved
+				PendSV_Handler,                           // The PendSV handler
+				SysTick_Handler,                          // The SysTick handler
 
-        // ----------------------------------------------------------------------
-        // gd32f10x vectors
-		WWDGT_IRQHandler,
-		LVD_IRQHandler,
-		TAMPER_IRQHandler,
-		RTC_IRQHandler,
-		FMC_IRQHandler,
-		RCU_IRQHandler,
-		EXTI0_IRQHandler,
-		EXTI1_IRQHandler,
-		EXTI2_IRQHandler,
-		EXTI3_IRQHandler,
-		EXTI4_IRQHandler,
-		DMA0_Channel0_IRQHandler,
-		DMA0_Channel1_IRQHandler,
-		DMA0_Channel2_IRQHandler,
-		DMA0_Channel3_IRQHandler,
-		DMA0_Channel4_IRQHandler,
-		DMA0_Channel5_IRQHandler,
-		DMA0_Channel6_IRQHandler,
-		ADC0_1_IRQHandler,
-		USBD_HP_CAN0_TX_IRQHandler,
-		USBD_LP_CAN0_RX0_IRQHandler,
-		CAN0_RX1_IRQHandler,
-		CAN0_EWMC_IRQHandler,
-		EXTI5_9_IRQHandler,
-		TIMER0_BRK_IRQHandler,
-		TIMER0_UP_IRQHandler,
-		TIMER0_TRG_CMT_IRQHandler,
-		TIMER0_Channel_IRQHandler,
-		TIMER1_IRQHandler,
-		TIMER2_IRQHandler,
-		TIMER3_IRQHandler,
-		I2C0_EV_IRQHandler,
-		I2C0_ER_IRQHandler,
-		I2C1_EV_IRQHandler,
-		I2C1_ER_IRQHandler,
-		SPI0_IRQHandler,
-		SPI1_IRQHandler,
-		USART0_IRQHandler,
-		USART1_IRQHandler,
-		USART2_IRQHandler,
-		EXTI10_15_IRQHandler,
-		RTC_Alarm_IRQHandler,
-		USBD_WKUP_IRQHandler,
-		EXMC_IRQHandler,
-    };
+				// ----------------------------------------------------------------------
+				// gd32f10x vectors
+				WWDGT_IRQHandler,				//
+				LVD_IRQHandler,					//
+				TAMPER_IRQHandler,				//
+				RTC_IRQHandler,					//
+				FMC_IRQHandler,					//
+				RCU_IRQHandler,					//
+				EXTI0_IRQHandler,				//
+				EXTI1_IRQHandler,				//
+				EXTI2_IRQHandler,				//
+				EXTI3_IRQHandler,				//
+				EXTI4_IRQHandler,				//
+				DMA0_Channel0_IRQHandler,		//
+				DMA0_Channel1_IRQHandler,		//
+				DMA0_Channel2_IRQHandler,		//
+				DMA0_Channel3_IRQHandler,		//
+				DMA0_Channel4_IRQHandler,		//
+				DMA0_Channel5_IRQHandler,		//
+				DMA0_Channel6_IRQHandler,		//
+				ADC0_1_IRQHandler,				//
+				USBD_HP_CAN0_TX_IRQHandler,		//
+				USBD_LP_CAN0_RX0_IRQHandler,	//
+				CAN0_RX1_IRQHandler,			//
+				CAN0_EWMC_IRQHandler,			//
+				EXTI5_9_IRQHandler,				//
+				TIMER0_BRK_IRQHandler,			//
+				TIMER0_UP_IRQHandler,			//
+				TIMER0_TRG_CMT_IRQHandler,		//
+				TIMER0_Channel_IRQHandler,		//
+				TIMER1_IRQHandler,				//
+				TIMER2_IRQHandler,				//
+				TIMER3_IRQHandler,				//
+				I2C0_EV_IRQHandler,				//
+				I2C0_ER_IRQHandler,				//
+				I2C1_EV_IRQHandler,				//
+				I2C1_ER_IRQHandler,				//
+				SPI0_IRQHandler,				//
+				SPI1_IRQHandler,				//
+				USART0_IRQHandler,				//
+				USART1_IRQHandler,				//
+				USART2_IRQHandler,				//
+				EXTI10_15_IRQHandler,			//
+				RTC_Alarm_IRQHandler,			//
+				USBD_WKUP_IRQHandler,			//
+				EXMC_IRQHandler,				//
+		};
 
 // ----------------------------------------------------------------------------
 
 // Processor ends up here if an unexpected interrupt occurs or a specific
 // handler is not present in the application code.
 
-void __attribute__ ((section(".after_vectors")))
-Default_Handler(void)
-{
-  while (1)
-    {
-	  ;
-    }
+void __attribute__ ((section(".after_vectors"))) Default_Handler(void) {
+	while (1) {
+		;
+	}
 }
 
 // ----------------------------------------------------------------------------

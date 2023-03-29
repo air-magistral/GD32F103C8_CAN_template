@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_spi.h
-    \brief   definitions for the SPI
+ \file    gd32f10x_spi.h
+ \brief   definitions for the SPI
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice,
-       this list of conditions and the following disclaimer in the documentation
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors
-       may be used to endorse or promote products derived from this software without
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_SPI_H
 #define GD32F10X_SPI_H
@@ -121,13 +121,13 @@ OF SUCH DAMAGE.
 /* constants definitions */
 /* SPI and I2S parameter struct definitions */
 typedef struct {
-    uint32_t device_mode;                                                       /*!< SPI master or slave */
-    uint32_t trans_mode;                                                        /*!< SPI transfer type */
-    uint32_t frame_size;                                                        /*!< SPI frame size */
-    uint32_t nss;                                                               /*!< SPI NSS control by handware or software */
-    uint32_t endian;                                                            /*!< SPI big endian or little endian */
-    uint32_t clock_polarity_phase;                                              /*!< SPI clock phase and polarity */
-    uint32_t prescale;                                                          /*!< SPI prescaler factor */
+	uint32_t device_mode; /*!< SPI master or slave */
+	uint32_t trans_mode; /*!< SPI transfer type */
+	uint32_t frame_size; /*!< SPI frame size */
+	uint32_t nss; /*!< SPI NSS control by handware or software */
+	uint32_t endian; /*!< SPI big endian or little endian */
+	uint32_t clock_polarity_phase; /*!< SPI clock phase and polarity */
+	uint32_t prescale; /*!< SPI prescaler factor */
 } spi_parameter_struct;
 
 /* SPI mode definitions */
@@ -264,9 +264,11 @@ void spi_disable(uint32_t spi_periph);
 
 /* I2S initialization functions */
 /* initialize I2S parameters */
-void i2s_init(uint32_t spi_periph, uint32_t mode, uint32_t standard, uint32_t ckpl);
+void i2s_init(uint32_t spi_periph, uint32_t mode, uint32_t standard,
+		uint32_t ckpl);
 /* configure I2S prescaler */
-void i2s_psc_config(uint32_t spi_periph, uint32_t audiosample, uint32_t frameformat, uint32_t mckout);
+void i2s_psc_config(uint32_t spi_periph, uint32_t audiosample,
+		uint32_t frameformat, uint32_t mckout);
 /* enable I2S */
 void i2s_enable(uint32_t spi_periph);
 /* disable I2S */
@@ -290,9 +292,11 @@ void spi_dma_disable(uint32_t spi_periph, uint8_t dma);
 
 /* communication functions */
 /* configure SPI data frame format */
-void spi_i2s_data_frame_format_config(uint32_t spi_periph, uint16_t frame_format);
+void spi_i2s_data_frame_format_config(uint32_t spi_periph,
+		uint16_t frame_format);
 /* configure SPI bidirectional transfer direction */
-void spi_bidirectional_transfer_config(uint32_t spi_periph, uint32_t transfer_direction);
+void spi_bidirectional_transfer_config(uint32_t spi_periph,
+		uint32_t transfer_direction);
 /* SPI transmit data */
 void spi_i2s_data_transmit(uint32_t spi_periph, uint16_t data);
 /* SPI receive data */

@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_exti.h
-    \brief   definitions for the EXTI
+ \file    gd32f10x_exti.h
+ \brief   definitions for the EXTI
 
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice,
-       this list of conditions and the following disclaimer in the documentation
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors
-       may be used to endorse or promote products derived from this software without
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_EXTI_H
 #define GD32F10X_EXTI_H
@@ -187,40 +187,40 @@ OF SUCH DAMAGE.
 /* constants definitions */
 /* EXTI line number */
 typedef enum {
-    EXTI_0      = BIT(0),                                           /*!< EXTI line 0 */
-    EXTI_1      = BIT(1),                                           /*!< EXTI line 1 */
-    EXTI_2      = BIT(2),                                           /*!< EXTI line 2 */
-    EXTI_3      = BIT(3),                                           /*!< EXTI line 3 */
-    EXTI_4      = BIT(4),                                           /*!< EXTI line 4 */
-    EXTI_5      = BIT(5),                                           /*!< EXTI line 5 */
-    EXTI_6      = BIT(6),                                           /*!< EXTI line 6 */
-    EXTI_7      = BIT(7),                                           /*!< EXTI line 7 */
-    EXTI_8      = BIT(8),                                           /*!< EXTI line 8 */
-    EXTI_9      = BIT(9),                                           /*!< EXTI line 9 */
-    EXTI_10     = BIT(10),                                          /*!< EXTI line 10 */
-    EXTI_11     = BIT(11),                                          /*!< EXTI line 11 */
-    EXTI_12     = BIT(12),                                          /*!< EXTI line 12 */
-    EXTI_13     = BIT(13),                                          /*!< EXTI line 13 */
-    EXTI_14     = BIT(14),                                          /*!< EXTI line 14 */
-    EXTI_15     = BIT(15),                                          /*!< EXTI line 15 */
-    EXTI_16     = BIT(16),                                          /*!< EXTI line 16 */
-    EXTI_17     = BIT(17),                                          /*!< EXTI line 17 */
-    EXTI_18     = BIT(18),                                          /*!< EXTI line 18 */
-    EXTI_19     = BIT(19)                                           /*!< EXTI line 19 */
+	EXTI_0 = BIT(0), /*!< EXTI line 0 */
+	EXTI_1 = BIT(1), /*!< EXTI line 1 */
+	EXTI_2 = BIT(2), /*!< EXTI line 2 */
+	EXTI_3 = BIT(3), /*!< EXTI line 3 */
+	EXTI_4 = BIT(4), /*!< EXTI line 4 */
+	EXTI_5 = BIT(5), /*!< EXTI line 5 */
+	EXTI_6 = BIT(6), /*!< EXTI line 6 */
+	EXTI_7 = BIT(7), /*!< EXTI line 7 */
+	EXTI_8 = BIT(8), /*!< EXTI line 8 */
+	EXTI_9 = BIT(9), /*!< EXTI line 9 */
+	EXTI_10 = BIT(10), /*!< EXTI line 10 */
+	EXTI_11 = BIT(11), /*!< EXTI line 11 */
+	EXTI_12 = BIT(12), /*!< EXTI line 12 */
+	EXTI_13 = BIT(13), /*!< EXTI line 13 */
+	EXTI_14 = BIT(14), /*!< EXTI line 14 */
+	EXTI_15 = BIT(15), /*!< EXTI line 15 */
+	EXTI_16 = BIT(16), /*!< EXTI line 16 */
+	EXTI_17 = BIT(17), /*!< EXTI line 17 */
+	EXTI_18 = BIT(18), /*!< EXTI line 18 */
+	EXTI_19 = BIT(19) /*!< EXTI line 19 */
 } exti_line_enum;
 
 /* external interrupt and event  */
 typedef enum {
-    EXTI_INTERRUPT   = 0,                                           /*!< EXTI interrupt mode */
-    EXTI_EVENT                                                      /*!< EXTI event mode */
+	EXTI_INTERRUPT = 0, /*!< EXTI interrupt mode */
+	EXTI_EVENT /*!< EXTI event mode */
 } exti_mode_enum;
 
 /* interrupt and event trigger mode */
 typedef enum {
-    EXTI_TRIG_RISING = 0,                                           /*!< EXTI rising edge trigger */
-    EXTI_TRIG_FALLING,                                              /*!< EXTI falling edge trigger */
-    EXTI_TRIG_BOTH,                                                 /*!< EXTI rising and falling edge trigger */
-    EXTI_TRIG_NONE                                                  /*!< without rising edge or falling edge trigger */
+	EXTI_TRIG_RISING = 0, /*!< EXTI rising edge trigger */
+	EXTI_TRIG_FALLING, /*!< EXTI falling edge trigger */
+	EXTI_TRIG_BOTH, /*!< EXTI rising and falling edge trigger */
+	EXTI_TRIG_NONE /*!< without rising edge or falling edge trigger */
 } exti_trig_type_enum;
 
 /* function declarations */
@@ -228,7 +228,8 @@ typedef enum {
 /* deinitialize the EXTI */
 void exti_deinit(void);
 /* initialize the EXTI line x */
-void exti_init(exti_line_enum linex, exti_mode_enum mode, exti_trig_type_enum trig_type);
+void exti_init(exti_line_enum linex, exti_mode_enum mode,
+		exti_trig_type_enum trig_type);
 /* enable the interrupts from EXTI line x */
 void exti_interrupt_enable(exti_line_enum linex);
 /* disable the interrupts from EXTI line x */

@@ -1,39 +1,39 @@
 /*!
-    \file    gd32f10x_rcu.h
-    \brief   definitions for the RCU
-    
-    \version 2014-12-26, V1.0.0, firmware for GD32F10x
-    \version 2017-06-20, V2.0.0, firmware for GD32F10x
-    \version 2018-07-31, V2.1.0, firmware for GD32F10x
-    \version 2020-09-30, V2.2.0, firmware for GD32F10x
-*/
+ \file    gd32f10x_rcu.h
+ \brief   definitions for the RCU
+
+ \version 2014-12-26, V1.0.0, firmware for GD32F10x
+ \version 2017-06-20, V2.0.0, firmware for GD32F10x
+ \version 2018-07-31, V2.1.0, firmware for GD32F10x
+ \version 2020-09-30, V2.2.0, firmware for GD32F10x
+ */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+ Copyright (c) 2020, GigaDevice Semiconductor Inc.
 
-    Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
 
-    1. Redistributions of source code must retain the above copyright notice, this 
-       list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright notice, 
-       this list of conditions and the following disclaimer in the documentation 
-       and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holder nor the names of its contributors 
-       may be used to endorse or promote products derived from this software without 
-       specific prior written permission.
+ 1. Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation
+ and/or other materials provided with the distribution.
+ 3. Neither the name of the copyright holder nor the names of its contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-OF SUCH DAMAGE.
-*/
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ OF SUCH DAMAGE.
+ */
 
 #ifndef GD32F10X_RCU_H
 #define GD32F10X_RCU_H
@@ -375,242 +375,233 @@ OF SUCH DAMAGE.
 #define CFG1_REG_OFFSET                 0x2CU                     /*!< clock configuration register 1 offset */
 
 /* peripheral clock enable */
-typedef enum
-{
-    /* AHB peripherals */
-    RCU_DMA0      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 0U),                   /*!< DMA0 clock */
-    RCU_DMA1      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 1U),                   /*!< DMA1 clock */
-    RCU_CRC       = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 6U),                   /*!< CRC clock */
-    RCU_EXMC      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 8U),                   /*!< EXMC clock */
+typedef enum {
+	/* AHB peripherals */
+	RCU_DMA0 = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 0U), /*!< DMA0 clock */
+	RCU_DMA1 = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 1U), /*!< DMA1 clock */
+	RCU_CRC = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 6U), /*!< CRC clock */
+	RCU_EXMC = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 8U), /*!< EXMC clock */
 #if (defined(GD32F10X_MD) || defined(GD32F10X_HD) || defined(GD32F10X_XD))
-    RCU_SDIO      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 10U),                  /*!< SDIO clock */
+	RCU_SDIO = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 10U), /*!< SDIO clock */
 #elif defined(GD32F10X_CL)
     RCU_USBFS     = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 12U),                  /*!< USBFS clock */
     RCU_ENET      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 14U),                  /*!< ENET clock */
     RCU_ENETTX    = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 15U),                  /*!< ENETTX clock */
     RCU_ENETRX    = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 16U),                  /*!< ENETRX clock */
 #endif /* GD32F10X_MD and GD32F10X_HD and GD32F10X_XD */
-    
-    /* APB1 peripherals */
-    RCU_TIMER1    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 0U),                  /*!< TIMER1 clock */
-    RCU_TIMER2    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 1U),                  /*!< TIMER2 clock */
-    RCU_TIMER3    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 2U),                  /*!< TIMER3 clock */
-    RCU_TIMER4    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 3U),                  /*!< TIMER4 clock */
-    RCU_TIMER5    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 4U),                  /*!< TIMER5 clock */
-    RCU_TIMER6    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 5U),                  /*!< TIMER6 clock */
+
+	/* APB1 peripherals */
+	RCU_TIMER1 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 0U), /*!< TIMER1 clock */
+	RCU_TIMER2 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 1U), /*!< TIMER2 clock */
+	RCU_TIMER3 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 2U), /*!< TIMER3 clock */
+	RCU_TIMER4 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 3U), /*!< TIMER4 clock */
+	RCU_TIMER5 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 4U), /*!< TIMER5 clock */
+	RCU_TIMER6 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 5U), /*!< TIMER6 clock */
 #if defined(GD32F10X_XD)
     RCU_TIMER11   = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 6U),                  /*!< TIMER11 clock */
     RCU_TIMER12   = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 7U),                  /*!< TIMER12 clock */
     RCU_TIMER13   = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 8U),                  /*!< TIMER13 clock */
 #endif /* GD32F10X_XD */
-    RCU_WWDGT     = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 11U),                 /*!< WWDGT clock */
-    RCU_SPI1      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 14U),                 /*!< SPI1 clock */
-    RCU_SPI2      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 15U),                 /*!< SPI2 clock */
-    RCU_USART1    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 17U),                 /*!< USART1 clock */
-    RCU_USART2    = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 18U),                 /*!< USART2 clock */
-    RCU_UART3     = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 19U),                 /*!< UART3 clock */
-    RCU_UART4     = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 20U),                 /*!< UART4 clock */
-    RCU_I2C0      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 21U),                 /*!< I2C0 clock */
-    RCU_I2C1      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 22U),                 /*!< I2C1 clock */
+	RCU_WWDGT = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 11U), /*!< WWDGT clock */
+	RCU_SPI1 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 14U), /*!< SPI1 clock */
+	RCU_SPI2 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 15U), /*!< SPI2 clock */
+	RCU_USART1 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 17U), /*!< USART1 clock */
+	RCU_USART2 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 18U), /*!< USART2 clock */
+	RCU_UART3 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 19U), /*!< UART3 clock */
+	RCU_UART4 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 20U), /*!< UART4 clock */
+	RCU_I2C0 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 21U), /*!< I2C0 clock */
+	RCU_I2C1 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 22U), /*!< I2C1 clock */
 #if (defined(GD32F10X_MD) || defined(GD32F10X_HD) || defined(GD32F10X_XD))
-    RCU_USBD      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 23U),                 /*!< USBD clock */
+	RCU_USBD = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 23U), /*!< USBD clock */
 #endif /* GD32F10X_MD and GD32F10X_HD and GD32F10X_XD */
-    RCU_CAN0      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 25U),                 /*!< CAN0 clock */
+	RCU_CAN0 = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 25U), /*!< CAN0 clock */
 #ifdef GD32F10X_CL
     RCU_CAN1      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 26U),                 /*!< CAN1 clock */
 #endif /* GD32F10X_CL */
-    RCU_BKPI      = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 27U),                 /*!< BKPI clock */
-    RCU_PMU       = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 28U),                 /*!< PMU clock */
-    RCU_DAC       = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 29U),                 /*!< DAC clock */
-    RCU_RTC       = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 15U),                  /*!< RTC clock */
-    
-    /* APB2 peripherals */
-    RCU_AF        = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 0U),                  /*!< alternate function clock */
-    RCU_GPIOA     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 2U),                  /*!< GPIOA clock */
-    RCU_GPIOB     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 3U),                  /*!< GPIOB clock */
-    RCU_GPIOC     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 4U),                  /*!< GPIOC clock */
-    RCU_GPIOD     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 5U),                  /*!< GPIOD clock */
-    RCU_GPIOE     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 6U),                  /*!< GPIOE clock */
-    RCU_GPIOF     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 7U),                  /*!< GPIOF clock */
-    RCU_GPIOG     = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 8U),                  /*!< GPIOG clock */
-    RCU_ADC0      = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 9U),                  /*!< ADC0 clock */
-    RCU_ADC1      = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 10U),                 /*!< ADC1 clock */
-    RCU_TIMER0    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 11U),                 /*!< TIMER0 clock */
-    RCU_SPI0      = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 12U),                 /*!< SPI0 clock */
-    RCU_TIMER7    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 13U),                 /*!< TIMER7 clock */
-    RCU_USART0    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 14U),                 /*!< USART0 clock */
+	RCU_BKPI = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 27U), /*!< BKPI clock */
+	RCU_PMU = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 28U), /*!< PMU clock */
+	RCU_DAC = RCU_REGIDX_BIT(APB1EN_REG_OFFSET, 29U), /*!< DAC clock */
+	RCU_RTC = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 15U), /*!< RTC clock */
+
+	/* APB2 peripherals */
+	RCU_AF = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 0U), /*!< alternate function clock */
+	RCU_GPIOA = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 2U), /*!< GPIOA clock */
+	RCU_GPIOB = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 3U), /*!< GPIOB clock */
+	RCU_GPIOC = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 4U), /*!< GPIOC clock */
+	RCU_GPIOD = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 5U), /*!< GPIOD clock */
+	RCU_GPIOE = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 6U), /*!< GPIOE clock */
+	RCU_GPIOF = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 7U), /*!< GPIOF clock */
+	RCU_GPIOG = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 8U), /*!< GPIOG clock */
+	RCU_ADC0 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 9U), /*!< ADC0 clock */
+	RCU_ADC1 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 10U), /*!< ADC1 clock */
+	RCU_TIMER0 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 11U), /*!< TIMER0 clock */
+	RCU_SPI0 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 12U), /*!< SPI0 clock */
+	RCU_TIMER7 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 13U), /*!< TIMER7 clock */
+	RCU_USART0 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 14U), /*!< USART0 clock */
 #ifndef GD32F10X_CL
-    RCU_ADC2      = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 15U),                 /*!< ADC2 clock */
+	RCU_ADC2 = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 15U), /*!< ADC2 clock */
 #endif /* GD32F10X_CL */
 #ifdef GD32F10X_XD
     RCU_TIMER8    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 19U),                 /*!< TIMER8 clock */
     RCU_TIMER9    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 20U),                 /*!< TIMER9 clock */
     RCU_TIMER10   = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 21U),                 /*!< TIMER10 clock */
 #endif /* GD32F10X_XD */
-}rcu_periph_enum;
+} rcu_periph_enum;
 
 /* peripheral clock enable when sleep mode*/
-typedef enum
-{
-    /* AHB peripherals */
-    RCU_SRAM_SLP     = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 2U),                /*!< SRAM clock */
-    RCU_FMC_SLP      = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 4U),                /*!< FMC clock */
-}rcu_periph_sleep_enum;
+typedef enum {
+	/* AHB peripherals */
+	RCU_SRAM_SLP = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 2U), /*!< SRAM clock */
+	RCU_FMC_SLP = RCU_REGIDX_BIT(AHBEN_REG_OFFSET, 4U), /*!< FMC clock */
+} rcu_periph_sleep_enum;
 
 /* peripherals reset */
-typedef enum
-{
-    /* AHB peripherals */
+typedef enum {
+	/* AHB peripherals */
 #ifdef GD32F10X_CL
     RCU_USBFSRST     = RCU_REGIDX_BIT(AHBRST_REG_OFFSET, 12U),              /*!< USBFS clock reset */
     RCU_ENETRST      = RCU_REGIDX_BIT(AHBRST_REG_OFFSET, 14U),              /*!< ENET clock reset */
 #endif /* GD32F10X_CL */
-    
-    /* APB1 peripherals */
-    RCU_TIMER1RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 0U),              /*!< TIMER1 clock reset */
-    RCU_TIMER2RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 1U),              /*!< TIMER2 clock reset */
-    RCU_TIMER3RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 2U),              /*!< TIMER3 clock reset */
-    RCU_TIMER4RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 3U),              /*!< TIMER4 clock reset */
-    RCU_TIMER5RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 4U),              /*!< TIMER5 clock reset */
-    RCU_TIMER6RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 5U),              /*!< TIMER6 clock reset */
+
+	/* APB1 peripherals */
+	RCU_TIMER1RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 0U), /*!< TIMER1 clock reset */
+	RCU_TIMER2RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 1U), /*!< TIMER2 clock reset */
+	RCU_TIMER3RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 2U), /*!< TIMER3 clock reset */
+	RCU_TIMER4RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 3U), /*!< TIMER4 clock reset */
+	RCU_TIMER5RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 4U), /*!< TIMER5 clock reset */
+	RCU_TIMER6RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 5U), /*!< TIMER6 clock reset */
 #ifdef GD32F10X_XD
     RCU_TIMER11RST   = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 6U),              /*!< TIMER11 clock reset */
     RCU_TIMER12RST   = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 7U),              /*!< TIMER12 clock reset */
     RCU_TIMER13RST   = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 8U),              /*!< TIMER13 clock reset */
 #endif /* GD32F10X_XD */
-    RCU_WWDGTRST     = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 11U),             /*!< WWDGT clock reset */
-    RCU_SPI1RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 14U),             /*!< SPI1 clock reset */
-    RCU_SPI2RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 15U),             /*!< SPI2 clock reset */
-    RCU_USART1RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 17U),             /*!< USART1 clock reset */
-    RCU_USART2RST    = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 18U),             /*!< USART2 clock reset */
-    RCU_UART3RST     = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 19U),             /*!< UART3 clock reset */
-    RCU_UART4RST     = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 20U),             /*!< UART4 clock reset */
-    RCU_I2C0RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 21U),             /*!< I2C0 clock reset */
-    RCU_I2C1RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 22U),             /*!< I2C1 clock reset */
+	RCU_WWDGTRST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 11U), /*!< WWDGT clock reset */
+	RCU_SPI1RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 14U), /*!< SPI1 clock reset */
+	RCU_SPI2RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 15U), /*!< SPI2 clock reset */
+	RCU_USART1RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 17U), /*!< USART1 clock reset */
+	RCU_USART2RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 18U), /*!< USART2 clock reset */
+	RCU_UART3RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 19U), /*!< UART3 clock reset */
+	RCU_UART4RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 20U), /*!< UART4 clock reset */
+	RCU_I2C0RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 21U), /*!< I2C0 clock reset */
+	RCU_I2C1RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 22U), /*!< I2C1 clock reset */
 #if (defined(GD32F10X_MD) || defined(GD32F10X_HD) || defined(GD32F10X_XD))
-    RCU_USBDRST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 23U),             /*!< USBD clock reset */
+	RCU_USBDRST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 23U), /*!< USBD clock reset */
 #endif /* GD32F10X_MD and GD32F10X_HD and GD32F10X_XD */
-    RCU_CAN0RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 25U),             /*!< CAN0 clock reset */
+	RCU_CAN0RST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 25U), /*!< CAN0 clock reset */
 #ifdef GD32F10X_CL
     RCU_CAN1RST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 26U),             /*!< CAN1 clock reset */
 #endif /* GD32F10X_CL */
-    RCU_BKPIRST      = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 27U),             /*!< BKPI clock reset */
-    RCU_PMURST       = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 28U),             /*!< PMU clock reset */
-    RCU_DACRST       = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 29U),             /*!< DAC clock reset */
-    
-    /* APB2 peripherals */
-    RCU_AFRST        = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 0U),              /*!< alternate function clock reset */
-    RCU_GPIOARST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 2U),              /*!< GPIOA clock reset */
-    RCU_GPIOBRST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 3U),              /*!< GPIOB clock reset */
-    RCU_GPIOCRST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 4U),              /*!< GPIOC clock reset */
-    RCU_GPIODRST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 5U),              /*!< GPIOD clock reset */
-    RCU_GPIOERST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 6U),              /*!< GPIOE clock reset */
-    RCU_GPIOFRST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 7U),              /*!< GPIOF clock reset */
-    RCU_GPIOGRST     = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 8U),              /*!< GPIOG clock reset */
-    RCU_ADC0RST      = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 9U),              /*!< ADC0 clock reset */
-    RCU_ADC1RST      = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 10U),             /*!< ADC1 clock reset */
-    RCU_TIMER0RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 11U),             /*!< TIMER0 clock reset */
-    RCU_SPI0RST      = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 12U),             /*!< SPI0 clock reset */
-    RCU_TIMER7RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 13U),             /*!< TIMER7 clock reset */
-    RCU_USART0RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 14U),             /*!< USART0 clock reset */
+	RCU_BKPIRST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 27U), /*!< BKPI clock reset */
+	RCU_PMURST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 28U), /*!< PMU clock reset */
+	RCU_DACRST = RCU_REGIDX_BIT(APB1RST_REG_OFFSET, 29U), /*!< DAC clock reset */
+
+	/* APB2 peripherals */
+	RCU_AFRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 0U), /*!< alternate function clock reset */
+	RCU_GPIOARST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 2U), /*!< GPIOA clock reset */
+	RCU_GPIOBRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 3U), /*!< GPIOB clock reset */
+	RCU_GPIOCRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 4U), /*!< GPIOC clock reset */
+	RCU_GPIODRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 5U), /*!< GPIOD clock reset */
+	RCU_GPIOERST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 6U), /*!< GPIOE clock reset */
+	RCU_GPIOFRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 7U), /*!< GPIOF clock reset */
+	RCU_GPIOGRST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 8U), /*!< GPIOG clock reset */
+	RCU_ADC0RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 9U), /*!< ADC0 clock reset */
+	RCU_ADC1RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 10U), /*!< ADC1 clock reset */
+	RCU_TIMER0RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 11U), /*!< TIMER0 clock reset */
+	RCU_SPI0RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 12U), /*!< SPI0 clock reset */
+	RCU_TIMER7RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 13U), /*!< TIMER7 clock reset */
+	RCU_USART0RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 14U), /*!< USART0 clock reset */
 #ifndef GD32F10X_CL
-    RCU_ADC2RST      = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 15U),             /*!< ADC2 clock reset */
+	RCU_ADC2RST = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 15U), /*!< ADC2 clock reset */
 #endif /* GD32F10X_CL */
 #ifdef GD32F10X_XD
     RCU_TIMER8RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 19U),             /*!< TIMER8 clock reset */
     RCU_TIMER9RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 20U),             /*!< TIMER9 clock reset */
     RCU_TIMER10RST   = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 21U),             /*!< TIMER10 clock reset */
 #endif /* GD32F10X_XD */
-}rcu_periph_reset_enum;
+} rcu_periph_reset_enum;
 
 /* clock stabilization and peripheral reset flags */
-typedef enum
-{
-    /* clock stabilization flags */
-    RCU_FLAG_IRC8MSTB      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 1U),            /*!< IRC8M stabilization flags */
-    RCU_FLAG_HXTALSTB      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 17U),           /*!< HXTAL stabilization flags */
-    RCU_FLAG_PLLSTB        = RCU_REGIDX_BIT(CTL_REG_OFFSET, 25U),           /*!< PLL stabilization flags */
+typedef enum {
+	/* clock stabilization flags */
+	RCU_FLAG_IRC8MSTB = RCU_REGIDX_BIT(CTL_REG_OFFSET, 1U), /*!< IRC8M stabilization flags */
+	RCU_FLAG_HXTALSTB = RCU_REGIDX_BIT(CTL_REG_OFFSET, 17U), /*!< HXTAL stabilization flags */
+	RCU_FLAG_PLLSTB = RCU_REGIDX_BIT(CTL_REG_OFFSET, 25U), /*!< PLL stabilization flags */
 #ifdef GD32F10X_CL
     RCU_FLAG_PLL1STB       = RCU_REGIDX_BIT(CTL_REG_OFFSET, 27U),           /*!< PLL1 stabilization flags */
     RCU_FLAG_PLL2STB       = RCU_REGIDX_BIT(CTL_REG_OFFSET, 29U),           /*!< PLL2 stabilization flags */
 #endif /* GD32F10X_CL */
-    RCU_FLAG_LXTALSTB      = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 1U),          /*!< LXTAL stabilization flags */
-    RCU_FLAG_IRC40KSTB     = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 1U),         /*!< IRC40K stabilization flags */
-    /* reset source flags */
-    RCU_FLAG_EPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 26U),        /*!< external PIN reset flags */
-    RCU_FLAG_PORRST        = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 27U),        /*!< power reset flags */
-    RCU_FLAG_SWRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 28U),        /*!< software reset flags */
-    RCU_FLAG_FWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 29U),        /*!< FWDGT reset flags */
-    RCU_FLAG_WWDGTRST      = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 30U),        /*!< WWDGT reset flags */
-    RCU_FLAG_LPRST         = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 31U),        /*!< low-power reset flags */
-}rcu_flag_enum;
+	RCU_FLAG_LXTALSTB = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 1U), /*!< LXTAL stabilization flags */
+	RCU_FLAG_IRC40KSTB = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 1U), /*!< IRC40K stabilization flags */
+	/* reset source flags */
+	RCU_FLAG_EPRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 26U), /*!< external PIN reset flags */
+	RCU_FLAG_PORRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 27U), /*!< power reset flags */
+	RCU_FLAG_SWRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 28U), /*!< software reset flags */
+	RCU_FLAG_FWDGTRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 29U), /*!< FWDGT reset flags */
+	RCU_FLAG_WWDGTRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 30U), /*!< WWDGT reset flags */
+	RCU_FLAG_LPRST = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 31U), /*!< low-power reset flags */
+} rcu_flag_enum;
 
 /* clock stabilization and ckm interrupt flags */
-typedef enum
-{
-    RCU_INT_FLAG_IRC40KSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 0U),            /*!< IRC40K stabilization interrupt flag */
-    RCU_INT_FLAG_LXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 1U),            /*!< LXTAL stabilization interrupt flag */
-    RCU_INT_FLAG_IRC8MSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 2U),            /*!< IRC8M stabilization interrupt flag */
-    RCU_INT_FLAG_HXTALSTB  = RCU_REGIDX_BIT(INT_REG_OFFSET, 3U),            /*!< HXTAL stabilization interrupt flag */
-    RCU_INT_FLAG_PLLSTB    = RCU_REGIDX_BIT(INT_REG_OFFSET, 4U),            /*!< PLL stabilization interrupt flag */
+typedef enum {
+	RCU_INT_FLAG_IRC40KSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 0U), /*!< IRC40K stabilization interrupt flag */
+	RCU_INT_FLAG_LXTALSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 1U), /*!< LXTAL stabilization interrupt flag */
+	RCU_INT_FLAG_IRC8MSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 2U), /*!< IRC8M stabilization interrupt flag */
+	RCU_INT_FLAG_HXTALSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 3U), /*!< HXTAL stabilization interrupt flag */
+	RCU_INT_FLAG_PLLSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 4U), /*!< PLL stabilization interrupt flag */
 #ifdef GD32F10X_CL
     RCU_INT_FLAG_PLL1STB   = RCU_REGIDX_BIT(INT_REG_OFFSET, 5U),            /*!< PLL1 stabilization interrupt flag */
     RCU_INT_FLAG_PLL2STB   = RCU_REGIDX_BIT(INT_REG_OFFSET, 6U),            /*!< PLL2 stabilization interrupt flag */
 #endif /* GD32F10X_CL */
-    RCU_INT_FLAG_CKM       = RCU_REGIDX_BIT(INT_REG_OFFSET, 7U),            /*!< HXTAL clock stuck interrupt flag */
-}rcu_int_flag_enum;
+	RCU_INT_FLAG_CKM = RCU_REGIDX_BIT(INT_REG_OFFSET, 7U), /*!< HXTAL clock stuck interrupt flag */
+} rcu_int_flag_enum;
 
 /* clock stabilization and stuck interrupt flags clear */
-typedef enum
-{
-    RCU_INT_FLAG_IRC40KSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 16U),       /*!< IRC40K stabilization interrupt flags clear */
-    RCU_INT_FLAG_LXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 17U),       /*!< LXTAL stabilization interrupt flags clear */
-    RCU_INT_FLAG_IRC8MSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 18U),       /*!< IRC8M stabilization interrupt flags clear */
-    RCU_INT_FLAG_HXTALSTB_CLR  = RCU_REGIDX_BIT(INT_REG_OFFSET, 19U),       /*!< HXTAL stabilization interrupt flags clear */
-    RCU_INT_FLAG_PLLSTB_CLR    = RCU_REGIDX_BIT(INT_REG_OFFSET, 20U),       /*!< PLL stabilization interrupt flags clear */
+typedef enum {
+	RCU_INT_FLAG_IRC40KSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 16U), /*!< IRC40K stabilization interrupt flags clear */
+	RCU_INT_FLAG_LXTALSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 17U), /*!< LXTAL stabilization interrupt flags clear */
+	RCU_INT_FLAG_IRC8MSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 18U), /*!< IRC8M stabilization interrupt flags clear */
+	RCU_INT_FLAG_HXTALSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 19U), /*!< HXTAL stabilization interrupt flags clear */
+	RCU_INT_FLAG_PLLSTB_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 20U), /*!< PLL stabilization interrupt flags clear */
 #ifdef GD32F10X_CL
     RCU_INT_FLAG_PLL1STB_CLR   = RCU_REGIDX_BIT(INT_REG_OFFSET, 21U),       /*!< PLL1 stabilization interrupt flags clear */
     RCU_INT_FLAG_PLL2STB_CLR   = RCU_REGIDX_BIT(INT_REG_OFFSET, 22U),       /*!< PLL2 stabilization interrupt flags clear */
 #endif /* GD32F10X_CL */
-    RCU_INT_FLAG_CKM_CLR       = RCU_REGIDX_BIT(INT_REG_OFFSET, 23U),       /*!< CKM interrupt flags clear */
-}rcu_int_flag_clear_enum;
+	RCU_INT_FLAG_CKM_CLR = RCU_REGIDX_BIT(INT_REG_OFFSET, 23U), /*!< CKM interrupt flags clear */
+} rcu_int_flag_clear_enum;
 
 /* clock stabilization interrupt enable or disable */
-typedef enum
-{
-    RCU_INT_IRC40KSTB       = RCU_REGIDX_BIT(INT_REG_OFFSET, 8U),           /*!< IRC40K stabilization interrupt */
-    RCU_INT_LXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 9U),           /*!< LXTAL stabilization interrupt */
-    RCU_INT_IRC8MSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 10U),          /*!< IRC8M stabilization interrupt */
-    RCU_INT_HXTALSTB        = RCU_REGIDX_BIT(INT_REG_OFFSET, 11U),          /*!< HXTAL stabilization interrupt */
-    RCU_INT_PLLSTB          = RCU_REGIDX_BIT(INT_REG_OFFSET, 12U),          /*!< PLL stabilization interrupt */
+typedef enum {
+	RCU_INT_IRC40KSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 8U), /*!< IRC40K stabilization interrupt */
+	RCU_INT_LXTALSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 9U), /*!< LXTAL stabilization interrupt */
+	RCU_INT_IRC8MSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 10U), /*!< IRC8M stabilization interrupt */
+	RCU_INT_HXTALSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 11U), /*!< HXTAL stabilization interrupt */
+	RCU_INT_PLLSTB = RCU_REGIDX_BIT(INT_REG_OFFSET, 12U), /*!< PLL stabilization interrupt */
 #ifdef GD32F10X_CL
     RCU_INT_PLL1STB         = RCU_REGIDX_BIT(INT_REG_OFFSET, 13U),          /*!< PLL1 stabilization interrupt */
     RCU_INT_PLL2STB         = RCU_REGIDX_BIT(INT_REG_OFFSET, 14U),          /*!< PLL2 stabilization interrupt */
 #endif /* GD32F10X_CL */
-}rcu_int_enum;
+} rcu_int_enum;
 
 /* oscillator types */
-typedef enum
-{
-    RCU_HXTAL      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 16U),                   /*!< HXTAL */
-    RCU_LXTAL      = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 0U),                  /*!< LXTAL */
-    RCU_IRC8M      = RCU_REGIDX_BIT(CTL_REG_OFFSET, 0U),                    /*!< IRC8M */
-    RCU_IRC40K     = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 0U),                 /*!< IRC40K */
-    RCU_PLL_CK     = RCU_REGIDX_BIT(CTL_REG_OFFSET, 24U),                   /*!< PLL */
+typedef enum {
+	RCU_HXTAL = RCU_REGIDX_BIT(CTL_REG_OFFSET, 16U), /*!< HXTAL */
+	RCU_LXTAL = RCU_REGIDX_BIT(BDCTL_REG_OFFSET, 0U), /*!< LXTAL */
+	RCU_IRC8M = RCU_REGIDX_BIT(CTL_REG_OFFSET, 0U), /*!< IRC8M */
+	RCU_IRC40K = RCU_REGIDX_BIT(RSTSCK_REG_OFFSET, 0U), /*!< IRC40K */
+	RCU_PLL_CK = RCU_REGIDX_BIT(CTL_REG_OFFSET, 24U), /*!< PLL */
 #ifdef GD32F10X_CL
     RCU_PLL1_CK    = RCU_REGIDX_BIT(CTL_REG_OFFSET, 26U),                   /*!< PLL1 */
     RCU_PLL2_CK    = RCU_REGIDX_BIT(CTL_REG_OFFSET, 28U),                   /*!< PLL2 */
 #endif /* GD32F10X_CL */
-}rcu_osci_type_enum;
+} rcu_osci_type_enum;
 
 /* rcu clock frequency */
-typedef enum
-{
-    CK_SYS      = 0,                                                        /*!< system clock */
-    CK_AHB,                                                                 /*!< AHB clock */
-    CK_APB1,                                                                /*!< APB1 clock */
-    CK_APB2,                                                                /*!< APB2 clock */
-}rcu_clock_freq_enum;
+typedef enum {
+	CK_SYS = 0, /*!< system clock */
+	CK_AHB, /*!< AHB clock */
+	CK_APB1, /*!< APB1 clock */
+	CK_APB2, /*!< APB2 clock */
+} rcu_clock_freq_enum;
 
 /* RCU_CFG0 register bit define */
 /* system clock source select */

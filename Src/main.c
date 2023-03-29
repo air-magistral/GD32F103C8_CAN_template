@@ -64,12 +64,12 @@ int main(void) {
 	can_interrupt_enable(CAN0, CAN_INT_RFNE1);
 
 	/* initialize transmit message */
-    can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &transmit_message);
-    transmit_message.tx_sfid = 0x00;
-    transmit_message.tx_efid = 0xaabb;
-    transmit_message.tx_ft = CAN_FT_DATA;
-    transmit_message.tx_ff = CAN_FF_EXTENDED;
-    transmit_message.tx_dlen = 8;
+	can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &transmit_message);
+	transmit_message.tx_sfid = 0x00;
+	transmit_message.tx_efid = 0xaabb;
+	transmit_message.tx_ft = CAN_FT_DATA;
+	transmit_message.tx_ff = CAN_FF_EXTENDED;
+	transmit_message.tx_dlen = 8;
 
 	transmit_message.tx_data[0] = 0xA0U;
 	transmit_message.tx_data[1] = 0xA1U;
@@ -187,12 +187,10 @@ void gpio_config(void) {
 	gpio_init(GPIOA, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, GPIO_PIN_11); /* CAN_RX*/
 	gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12); /* CAN_TX */
 
-
 	/* configure LED GPIO */
 	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);
 	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_4);
 	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_5);
-
 
 }
 
