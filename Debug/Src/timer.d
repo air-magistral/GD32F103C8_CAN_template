@@ -26,6 +26,7 @@ Src/timer.o: ../Src/timer.c ../Inc/timer.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
  ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h \
  ../System/Inc/cortexm/exception-handlers.h
 
 ../Inc/timer.h:
@@ -91,5 +92,7 @@ Src/timer.o: ../Src/timer.c ../Inc/timer.h \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:
 
 ../System/Inc/cortexm/exception-handlers.h:

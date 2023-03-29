@@ -25,7 +25,8 @@ Src/gd32f10x_eval.o: ../Src/gd32f10x_eval.c ../Inc/gd32f10x_eval.h \
  ../System/Inc/gd32f10x/gd32f10x_spi.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
- ../System/Inc/gd32f10x/gd32f10x_wwdgt.h
+ ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h
 
 ../Inc/gd32f10x_eval.h:
 
@@ -86,3 +87,5 @@ Src/gd32f10x_eval.o: ../Src/gd32f10x_eval.c ../Inc/gd32f10x_eval.h \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:

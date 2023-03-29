@@ -61,5 +61,6 @@ OF SUCH DAMAGE.
 #include "gd32f10x_timer.h"
 #include "gd32f10x_usart.h"
 #include "gd32f10x_wwdgt.h"
+#include "gd32f10x_it.h"
 
 #endif /* GD32F10X_LIBOPT_H */

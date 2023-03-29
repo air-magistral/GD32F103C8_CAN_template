@@ -25,7 +25,8 @@ Src/main.o: ../Src/main.c ../System/Inc/diag/trace.h ../Inc/timer.h \
  ../System/Inc/gd32f10x/gd32f10x_spi.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
- ../System/Inc/gd32f10x/gd32f10x_wwdgt.h ../Inc/gd32f10x_eval.h
+ ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h ../Inc/gd32f10x_eval.h
 
 ../System/Inc/diag/trace.h:
 
@@ -92,5 +93,7 @@ Src/main.o: ../Src/main.c ../System/Inc/diag/trace.h ../Inc/timer.h \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:
 
 ../Inc/gd32f10x_eval.h:

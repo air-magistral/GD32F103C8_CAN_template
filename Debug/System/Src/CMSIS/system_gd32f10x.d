@@ -25,7 +25,8 @@ System/Src/CMSIS/system_gd32f10x.o: ../System/Src/CMSIS/system_gd32f10x.c \
  ../System/Inc/gd32f10x/gd32f10x_spi.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
- ../System/Inc/gd32f10x/gd32f10x_wwdgt.h
+ ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h
 
 ../System/Inc/CMSIS/gd32f10x.h:
 
@@ -84,3 +85,5 @@ System/Src/CMSIS/system_gd32f10x.o: ../System/Src/CMSIS/system_gd32f10x.c \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:

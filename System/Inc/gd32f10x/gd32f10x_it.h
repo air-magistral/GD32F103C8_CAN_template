@@ -60,8 +60,7 @@ void PendSV_Handler(void);
 /* this function handles SysTick exception */
 void SysTick_Handler(void);
 /* CAN0 RX0 handle function */
-void CAN0_RX0_IRQHandler(void);
-/* CAN1 RX0 handle function */
-void CAN1_RX0_IRQHandler(void);
+void CAN0_RX1_IRQHandler(void);
+
 
 #endif /* GD32F10X_IT_H */

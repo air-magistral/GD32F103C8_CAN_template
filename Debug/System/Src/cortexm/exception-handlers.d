@@ -27,7 +27,8 @@ System/Src/cortexm/exception-handlers.o: \
  ../System/Inc/gd32f10x/gd32f10x_spi.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
- ../System/Inc/gd32f10x/gd32f10x_wwdgt.h ../System/Inc/arm/semihosting.h \
+ ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h ../System/Inc/arm/semihosting.h \
  ../System/Inc/diag/trace.h
 
 ../System/Inc/cortexm/exception-handlers.h:
@@ -93,6 +94,8 @@ System/Src/cortexm/exception-handlers.o: \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:
 
 ../System/Inc/arm/semihosting.h:
 

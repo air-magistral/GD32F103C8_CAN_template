@@ -124,7 +124,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
             
             ((can_trasnmit_message_struct*)p_struct)->tx_dlen = 0u;
             ((can_trasnmit_message_struct*)p_struct)->tx_efid = 0U;
-            ((can_trasnmit_message_struct*)p_struct)->tx_ff = (uint8_t)CAN_FF_STANDARD;
+            ((can_trasnmit_message_struct*)p_struct)->tx_ff = (uint8_t)CAN_FF_EXTENDED;
             ((can_trasnmit_message_struct*)p_struct)->tx_ft = (uint8_t)CAN_FT_DATA;
             ((can_trasnmit_message_struct*)p_struct)->tx_sfid = 0U;
             
@@ -137,7 +137,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
             
             ((can_receive_message_struct*)p_struct)->rx_dlen = 0U;
             ((can_receive_message_struct*)p_struct)->rx_efid = 0U;
-            ((can_receive_message_struct*)p_struct)->rx_ff = (uint8_t)CAN_FF_STANDARD;
+            ((can_receive_message_struct*)p_struct)->rx_ff = (uint8_t)CAN_FF_EXTENDED;
             ((can_receive_message_struct*)p_struct)->rx_fi = 0U;
             ((can_receive_message_struct*)p_struct)->rx_ft = (uint8_t)CAN_FT_DATA;
             ((can_receive_message_struct*)p_struct)->rx_sfid = 0U;

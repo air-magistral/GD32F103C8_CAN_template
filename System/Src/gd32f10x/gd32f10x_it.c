@@ -37,8 +37,8 @@
 
 #include "gd32f10x_it.h"
 
-extern FlagStatus receive_flag;
-extern can_receive_message_struct g_receive_message;
+extern FlagStatus can0_receive_flag;
+extern can_receive_message_struct receive_message;
 
 /*!
  \brief      this function handles NMI exception
@@ -133,7 +133,6 @@ void PendSV_Handler(void) {
 //void SysTick_Handler(void) {
 //
 //}
-
 /*!
  \brief      this function handles CAN0 RX0 exception
  \param[in]  none
@@ -142,26 +141,11 @@ void PendSV_Handler(void) {
  */
 void CAN0_RX1_IRQHandler(void) {
 	/* check the receive message */
-	can_message_receive(CAN0, CAN_FIFO1, &g_receive_message);
-	if ((0xaabb == g_receive_message.rx_efid)
-			&& (CAN_FF_EXTENDED == g_receive_message.rx_ff)
-			&& (8 == g_receive_message.rx_dlen)) {
-		receive_flag = SET;
+	can_message_receive(CAN0, CAN_FIFO1, &receive_message);
+	if ((43707 == receive_message.rx_efid)
+			&& (CAN_FF_EXTENDED == receive_message.rx_ff)
+			&& (8 == receive_message.rx_dlen)) {
+		can0_receive_flag = SET;
 	}
 }
 
-/*!
- \brief      this function handles CAN1 RX0 exception
- \param[in]  none
- \param[out] none
- \retval     none
- */
-void CAN1_RX1_IRQHandler(void) {
-	/* check the receive message */
-	can_message_receive(CAN1, CAN_FIFO1, &g_receive_message);
-	if ((0xaabb == g_receive_message.rx_efid)
-			&& (CAN_FF_EXTENDED == g_receive_message.rx_ff)
-			&& (8 == g_receive_message.rx_dlen)) {
-		receive_flag = SET;
-	}
-}

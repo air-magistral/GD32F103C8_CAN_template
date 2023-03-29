@@ -24,7 +24,8 @@ System/Src/gd32f10x/gd32f10x_rcu.o: ../System/Src/gd32f10x/gd32f10x_rcu.c \
  ../System/Inc/gd32f10x/gd32f10x_spi.h \
  ../System/Inc/gd32f10x/gd32f10x_timer.h \
  ../System/Inc/gd32f10x/gd32f10x_usart.h \
- ../System/Inc/gd32f10x/gd32f10x_wwdgt.h
+ ../System/Inc/gd32f10x/gd32f10x_wwdgt.h \
+ ../System/Inc/gd32f10x/gd32f10x_it.h
 
 ../System/Inc/gd32f10x/gd32f10x_rcu.h:
 
@@ -83,3 +84,5 @@ System/Src/gd32f10x/gd32f10x_rcu.o: ../System/Src/gd32f10x/gd32f10x_rcu.c \
 ../System/Inc/gd32f10x/gd32f10x_usart.h:
 
 ../System/Inc/gd32f10x/gd32f10x_wwdgt.h:
+
+../System/Inc/gd32f10x/gd32f10x_it.h:
