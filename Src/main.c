@@ -6,6 +6,9 @@
 #include "gd32f10x.h"
 #include "gd32f10x_eval.h"
 
+#define SIGN  0		//LEFT_RIGH
+//#define SIGN  1		//ROAD
+
 /* select CAN baudrate */
 /* 1MBps */
 //#define CAN_BAUDRATE  1000
@@ -28,10 +31,30 @@ can_filter_parameter_struct can_filter_parameter;
 can_trasnmit_message_struct transmit_message;
 can_receive_message_struct receive_message;
 
+int prog;
+int n;
+int stat = 1;
+
+#if SIGN ==0
+uint32_t address = 0x18FFA110;
+#elif SIGN == 1
+uint32_t address=0x18FFA210;
+#else
+#error "please select list SIGN in private defines in main.c "
+#endif
+
 void nvic_config(void);
 void gpio_config(void);
 void can_config(can_parameter_struct can_parameter,
 		can_filter_parameter_struct can_filter);
+void set_prog(int);
+void blink(void);
+void blink_LEFT(void);
+void blink_RIGH(void);
+void LIGH_OFF(void);
+void LIGH_ON(void);
+void LIGH_RIGH(void);
+void LIGH_LEFT(void);
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -53,10 +76,11 @@ int main(void) {
 //	gd_eval_com_init(EVAL_COM0);
 	/* configure key */
 
-	gd_eval_key_init(KEY_TAMPER, KEY_MODE_GPIO);
+	key_init(KEY_TAMPER, KEY_MODE_GPIO);
 
-	gd_eval_led_off(LED2);
-	gd_eval_led_off(LED4);
+	led_off(LED_LEFT);
+	led_off(LED_STROB);
+	led_off(LED_RIGH);
 
 	/* initialize CAN and filter */
 	can_config(can_init_parameter, can_filter_parameter);
@@ -66,46 +90,37 @@ int main(void) {
 	/* initialize transmit message */
 	can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &transmit_message);
 	transmit_message.tx_sfid = 0x00;
-	transmit_message.tx_efid = 0xaabb;
+#if SIGN ==0
+	transmit_message.tx_efid = 0x18FFA71E;
+#elif SIGN == 1
+	transmit_message.tx_efid = 0x18FFA81E;
+	#else
+	#error "please select list SIGN in private defines in main.c "
+	#endif
+
 	transmit_message.tx_ft = CAN_FT_DATA;
 	transmit_message.tx_ff = CAN_FF_EXTENDED;
-	transmit_message.tx_dlen = 8;
+	transmit_message.tx_dlen = 2;
 
-	transmit_message.tx_data[0] = 0xA0U;
-	transmit_message.tx_data[1] = 0xA1U;
-	transmit_message.tx_data[2] = 0xA2U;
-	transmit_message.tx_data[3] = 0xA3U;
-	transmit_message.tx_data[4] = 0xA4U;
-	transmit_message.tx_data[5] = 0xA5U;
-	transmit_message.tx_data[6] = 0xA6U;
-	transmit_message.tx_data[7] = 0xA7U;
+	transmit_message.tx_data[0] = 0x0U;
+	transmit_message.tx_data[1] = 0x0U;
 
 	can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &receive_message);
 
 	while (1) {
-		/* test whether the Tamper key is pressed */
-		if (0 == gd_eval_key_state_get(KEY_TAMPER)) {
-			/* transmit message */
-			can_message_transmit(CAN0, &transmit_message);
-			gd_eval_led_toggle(LED4);
-			/* waiting for the Tamper key up */
-			while (0 == gd_eval_key_state_get(KEY_TAMPER))
-				;
-		}
+
 		/* CAN0 receive data correctly, the received data is printed */
 		if (SET == can0_receive_flag) {
-			can0_receive_flag = RESET;
-			for (int i = 0; i < 6; i++) {
-				gd_eval_led_toggle(LED2);
-				timer_sleep(150);
-			}
+			//can0_receive_flag = RESET;
+			transmit_message.tx_data[0] = prog;
+			can_message_transmit(CAN0, &transmit_message);
+			set_prog(prog);
 		}
 
 		/* CAN0 error */
 		if (SET == can0_error_flag) {
 			can0_error_flag = RESET;
 		}
-
 	}
 }
 
@@ -180,7 +195,9 @@ void gpio_config(void) {
 	/* enable CAN clock */
 	gpio_afio_deinit();
 	rcu_periph_clock_enable(RCU_CAN0);
+	/* enable GPIO clock */
 	rcu_periph_clock_enable(RCU_GPIOA);
+	rcu_periph_clock_enable(RCU_GPIOB);
 	rcu_periph_clock_enable(RCU_AF);
 
 	/* configure CAN0 GPIO */
@@ -188,10 +205,279 @@ void gpio_config(void) {
 	gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12); /* CAN_TX */
 
 	/* configure LED GPIO */
-	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_3);
-	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_4);
-	gpio_init(GPIOA, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_5);
+	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12);
+	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13);
+	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14);
 
+}
+
+void set_prog(int prog_num) {
+	switch (prog_num) {
+	case 0:
+		LIGH_OFF();
+		break;
+	case 1:
+		LIGH_ON();
+		break;
+	case 2:
+		LIGH_LEFT();
+		break;
+	case 3:
+		LIGH_RIGH();
+		break;
+	case 4:
+		blink();
+		break;
+	case 5:
+		blink_LEFT();
+		break;
+	case 6:
+		blink_RIGH();
+		break;
+	}
+}
+
+void LIGH_OFF() {
+	switch (n) {
+	case 0:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 1:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 2:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n = 0;
+		break;
+	}
+}
+
+void LIGH_ON() {
+	switch (n) {
+	case 0:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 1:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 2:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n = 0;
+		break;
+	}
+}
+
+void LIGH_LEFT() {
+	switch (n) {
+	case 0:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 1:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 2:
+		led_on(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		timer_sleep(1000);
+		n = 0;
+		break;
+	}
+}
+
+void LIGH_RIGH() {
+	switch (n) {
+	case 0:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 1:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n++;
+		break;
+	case 2:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_on(LED_RIGH);
+		timer_sleep(1000);
+		n = 0;
+		break;
+	}
+}
+
+void blink() {
+	switch (n) {
+	case 0:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_RIGH);
+		timer_sleep(400);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n++;
+		break;
+	case 1:
+		led_toggle(LED_LEFT);
+		led_toggle(LED_RIGH);
+		timer_sleep(400);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n++;
+		break;
+	case 2:
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n = 0;
+		break;
+	}
+}
+
+void blink_LEFT() {
+	switch (n) {
+	case 0:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		led_toggle(LED_LEFT);
+		timer_sleep(400);
+		led_toggle(LED_LEFT);
+		timer_sleep(600);
+		n++;
+		break;
+	case 1:
+		led_toggle(LED_LEFT);
+		timer_sleep(400);
+		led_toggle(LED_LEFT);
+		timer_sleep(600);
+		n++;
+		break;
+	case 2:
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(80);
+		led_toggle(LED_LEFT);
+		led_toggle(LED_STROB);
+		timer_sleep(600);
+		n = 0;
+		break;
+	}
+}
+
+void blink_RIGH() {
+	switch (n) {
+	case 0:
+		led_off(LED_LEFT);
+		led_off(LED_STROB);
+		led_off(LED_RIGH);
+		led_toggle(LED_RIGH);
+		timer_sleep(400);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n++;
+		break;
+	case 1:
+		led_toggle(LED_RIGH);
+		timer_sleep(400);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n++;
+		break;
+	case 2:
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(80);
+		led_toggle(LED_STROB);
+		led_toggle(LED_RIGH);
+		timer_sleep(600);
+		n = 0;
+		break;
+	}
 }
 
 #pragma GCC diagnostic pop

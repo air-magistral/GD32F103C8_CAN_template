@@ -38,9 +38,9 @@
 #include "gd32f10x_eval.h"
 
 /* private variables */
-static uint32_t GPIO_PORT[LEDn] = { LED2_GPIO_PORT, LED3_GPIO_PORT,
-LED4_GPIO_PORT, LED5_GPIO_PORT };
-static uint32_t GPIO_PIN[LEDn] = { LED2_PIN, LED3_PIN, LED4_PIN, LED5_PIN };
+static uint32_t GPIO_PORT[LEDn] = { LED_LEFT_GPIO_PORT, LED_STROB_GPIO_PORT,
+LED_RIGH_GPIO_PORT };
+static uint32_t GPIO_PIN[LEDn] = { LED_LEFT_PIN, LED_STROB_PIN, LED_RIGH_PIN};
 
 static rcu_periph_enum COM_CLK[COMn] = { EVAL_COM0_CLK, EVAL_COM1_CLK };
 static uint32_t COM_TX_PIN[COMn] = { EVAL_COM0_TX_PIN, EVAL_COM1_TX_PIN };
@@ -50,8 +50,8 @@ static uint32_t COM_GPIO_PORT[COMn] =
 static rcu_periph_enum COM_GPIO_CLK[COMn] = { EVAL_COM0_GPIO_CLK,
 EVAL_COM1_GPIO_CLK };
 
-static rcu_periph_enum GPIO_CLK[LEDn] = { LED2_GPIO_CLK, LED3_GPIO_CLK,
-LED4_GPIO_CLK, LED5_GPIO_CLK };
+static rcu_periph_enum GPIO_CLK[LEDn] = { LED_LEFT_GPIO_CLK, LED_STROB_GPIO_CLK,
+		LED_RIGH_GPIO_CLK};
 
 static uint32_t KEY_PORT[KEYn] = { WAKEUP_KEY_GPIO_PORT,
 TAMPER_KEY_GPIO_PORT,
@@ -85,7 +85,7 @@ USER_KEY_EXTI_IRQn };
  \param[out] none
  \retval     none
  */
-void gd_eval_led_init(led_typedef_enum lednum) {
+void led_init(led_typedef_enum lednum) {
 	/* enable the led clock */
 	rcu_periph_clock_enable(GPIO_CLK[lednum]);
 	/* configure led GPIO port */
@@ -105,7 +105,7 @@ void gd_eval_led_init(led_typedef_enum lednum) {
  \param[out] none
  \retval     none
  */
-void gd_eval_led_on(led_typedef_enum lednum) {
+void led_on(led_typedef_enum lednum) {
 	GPIO_BOP(GPIO_PORT[lednum]) = GPIO_PIN[lednum];
 }
 
@@ -119,7 +119,7 @@ void gd_eval_led_on(led_typedef_enum lednum) {
  \param[out] none
  \retval     none
  */
-void gd_eval_led_off(led_typedef_enum lednum) {
+void led_off(led_typedef_enum lednum) {
 	GPIO_BC(GPIO_PORT[lednum]) = GPIO_PIN[lednum];
 }
 
@@ -133,7 +133,7 @@ void gd_eval_led_off(led_typedef_enum lednum) {
  \param[out] none
  \retval     none
  */
-void gd_eval_led_toggle(led_typedef_enum lednum) {
+void led_toggle(led_typedef_enum lednum) {
 	gpio_bit_write(GPIO_PORT[lednum], GPIO_PIN[lednum],
 			(bit_status) (1
 					- gpio_input_bit_get(GPIO_PORT[lednum], GPIO_PIN[lednum])));
@@ -151,7 +151,7 @@ void gd_eval_led_toggle(led_typedef_enum lednum) {
  \param[out] none
  \retval     none
  */
-void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode) {
+void key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode) {
 	/* enable the key clock */
 	rcu_periph_clock_enable(KEY_CLK[key_num]);
 	rcu_periph_clock_enable(RCU_AF);
@@ -183,7 +183,7 @@ void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode) {
  \param[out] none
  \retval     the key's GPIO pin value
  */
-uint8_t gd_eval_key_state_get(key_typedef_enum key) {
+uint8_t key_state_get(key_typedef_enum key) {
 	return gpio_input_bit_get(KEY_PORT[key], KEY_PIN[key]);
 }
 
@@ -195,7 +195,7 @@ uint8_t gd_eval_key_state_get(key_typedef_enum key) {
  \param[out] none
  \retval     none
  */
-void gd_eval_com_init(uint32_t com) {
+void com_init(uint32_t com) {
 	uint32_t com_id = 0U;
 	if (EVAL_COM0 == com) {
 		com_id = 0U;

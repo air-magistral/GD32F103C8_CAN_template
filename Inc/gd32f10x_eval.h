@@ -46,7 +46,7 @@
 
 /* exported types */
 typedef enum {
-	LED2 = 0, LED3 = 1, LED4 = 2, LED5 = 3
+	LED_LEFT = 0, LED_STROB = 1, LED_RIGH = 2
 } led_typedef_enum;
 
 typedef enum {
@@ -57,24 +57,22 @@ typedef enum {
 	KEY_MODE_GPIO = 0, KEY_MODE_EXTI = 1
 } keymode_typedef_enum;
 
-/* eval board low layer led */
-#define LEDn                             4U
 
-#define LED2_PIN                         GPIO_PIN_3
-#define LED2_GPIO_PORT                   GPIOA
-#define LED2_GPIO_CLK                    RCU_GPIOA
 
-#define LED3_PIN                         GPIO_PIN_4
-#define LED3_GPIO_PORT                   GPIOA
-#define LED3_GPIO_CLK                    RCU_GPIOA
 
-#define LED4_PIN                         GPIO_PIN_5
-#define LED4_GPIO_PORT                   GPIOA
-#define LED4_GPIO_CLK                    RCU_GPIOA
+#define LEDn                             3U
 
-#define LED5_PIN                         GPIO_PIN_1
-#define LED5_GPIO_PORT                   GPIOE
-#define LED5_GPIO_CLK                    RCU_GPIOE
+#define LED_LEFT_PIN                         GPIO_PIN_14
+#define LED_LEFT_GPIO_PORT                   GPIOB
+#define LED_LEFT_GPIO_CLK                    RCU_GPIOB
+
+#define LED_RIGH_PIN                         GPIO_PIN_12
+#define LED_RIGH_GPIO_PORT                   GPIOB
+#define LED_RIGH_GPIO_CLK                    RCU_GPIOB
+
+#define LED_STROB_PIN                         GPIO_PIN_13
+#define LED_STROB_GPIO_PORT                   GPIOB
+#define LED_STROB_GPIO_CLK                    RCU_GPIOB
 
 #define COMn                             2U
 
@@ -122,20 +120,21 @@ typedef enum {
 #define USER_KEY_EXTI_IRQn               EXTI10_15_IRQn
 
 /* function declarations */
+
 /* configure led GPIO */
-void gd_eval_led_init(led_typedef_enum lednum);
+void led_init(led_typedef_enum lednum);
 /* turn on selected led */
-void gd_eval_led_on(led_typedef_enum lednum);
+void led_on(led_typedef_enum lednum);
 /* turn off selected led */
-void gd_eval_led_off(led_typedef_enum lednum);
+void led_off(led_typedef_enum lednum);
 /* toggle the selected led */
-void gd_eval_led_toggle(led_typedef_enum lednum);
+void led_toggle(led_typedef_enum lednum);
 /* configure key */
-void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode);
+void key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode);
 /* return the selected key state */
-uint8_t gd_eval_key_state_get(key_typedef_enum key);
+uint8_t key_state_get(key_typedef_enum key);
 /* configure COM port */
-void gd_eval_com_init(uint32_t com);
+void com_init(uint32_t com);
 
 #ifdef cplusplus
 }

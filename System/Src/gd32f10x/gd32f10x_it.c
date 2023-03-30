@@ -36,10 +36,14 @@
  */
 
 #include "gd32f10x_it.h"
+#include "gd32f10x_eval.h"
 
 extern FlagStatus can0_receive_flag;
 extern can_receive_message_struct receive_message;
-
+extern int prog;
+extern int n;
+int m, v;
+extern uint32_t address;
 /*!
  \brief      this function handles NMI exception
  \param[in]  none
@@ -142,10 +146,25 @@ void PendSV_Handler(void) {
 void CAN0_RX1_IRQHandler(void) {
 	/* check the receive message */
 	can_message_receive(CAN0, CAN_FIFO1, &receive_message);
-	if ((43707 == receive_message.rx_efid)
-			&& (CAN_FF_EXTENDED == receive_message.rx_ff)
-			&& (8 == receive_message.rx_dlen)) {
+
+	if ((0x18FFA110 == receive_message.rx_efid)
+			|| (0x18FFA210 == receive_message.rx_efid)) {
 		can0_receive_flag = SET;
+		n = 0;
+	}
+
+	if ((address == receive_message.rx_efid)
+			&& (CAN_FF_EXTENDED == receive_message.rx_ff)
+			&& (1 == receive_message.rx_dlen)) {
+		//can0_receive_flag = SET;
+		m = receive_message.rx_data[0] & 0xF;
+		if (m < 7) {
+			prog = m;
+			//n = 0;
+		} else {
+
+		}
+
 	}
 }
 
