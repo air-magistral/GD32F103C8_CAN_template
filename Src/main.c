@@ -112,8 +112,10 @@ int main(void) {
 		/* CAN0 receive data correctly, the received data is printed */
 		if (SET == can0_receive_flag) {
 			//can0_receive_flag = RESET;
-			transmit_message.tx_data[0] = prog;
-			can_message_transmit(CAN0, &transmit_message);
+			if (n == 0) {
+				transmit_message.tx_data[0] = prog;
+				can_message_transmit(CAN0, &transmit_message);
+			}
 			set_prog(prog);
 		}
 
@@ -174,10 +176,10 @@ void can_config(can_parameter_struct can_parameter,
 	can_filter.filter_number = 0;
 	can_filter.filter_mode = CAN_FILTERMODE_MASK;
 	can_filter.filter_bits = CAN_FILTERBITS_32BIT;
-	can_filter.filter_list_high = 0x0000;
-	can_filter.filter_list_low = 0x0000;
-	can_filter.filter_mask_high = 0x0000;
-	can_filter.filter_mask_low = 0x0000;
+	can_filter.filter_list_high = (uint16_t)(0x18FFA010 >> 13);
+	can_filter.filter_list_low = (uint16_t)(((uint16_t)0x18FFA010 << 3) | (1U << 2));
+	can_filter.filter_mask_high = (uint16_t)(0x1FFFF0FF >> 13);
+	can_filter.filter_mask_low = (uint16_t)(((uint16_t)0x1FFFF0FF << 3) | (1U << 2));
 	can_filter.filter_fifo_number = CAN_FIFO1;
 	can_filter.filter_enable = ENABLE;
 
