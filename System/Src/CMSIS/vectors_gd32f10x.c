@@ -256,6 +256,11 @@ pHandler __isr_vectors[] = { //
 				EXTI10_15_IRQHandler,			//
 				RTC_Alarm_IRQHandler,			//
 				USBD_WKUP_IRQHandler,			//
+				0,								//
+				0,								//
+				0,								//
+				0,								//
+				0,								//
 				EXMC_IRQHandler,				//
 		};
 

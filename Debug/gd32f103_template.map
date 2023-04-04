@@ -5565,415 +5565,415 @@ END GROUP
                 0x00000000200001f8                PROVIDE (_Heap_Begin = _end_noinit)
                 0x0000000020004c00                PROVIDE (_Heap_Limit = (__stack - __Main_Stack_Size))
 
-.isr_vector     0x0000000008000000      0x332
+.isr_vector     0x0000000008000000      0x346
  FILL mask 0xff
                 0x0000000008000000                __vectors_start = ABSOLUTE (.)
                 0x0000000008000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
- .isr_vector    0x0000000008000000       0xf0 ./System/Src/CMSIS/vectors_gd32f10x.o
+ .isr_vector    0x0000000008000000      0x104 ./System/Src/CMSIS/vectors_gd32f10x.o
                 0x0000000008000000                __isr_vectors
  *(.cfmconfig)
  *(.after_vectors .after_vectors.*)
  .after_vectors
-                0x00000000080000f0      0x114 ./System/Src/newlib/startup.o
-                0x00000000080000f0                _start
+                0x0000000008000104      0x114 ./System/Src/newlib/startup.o
+                0x0000000008000104                _start
  .after_vectors
-                0x0000000008000204      0x12c ./System/Src/cortexm/exception-handlers.o
-                0x0000000008000204                Reset_Handler
-                0x0000000008000222                HardFault_Handler_C
-                0x0000000008000298                BusFault_Handler_C
-                0x00000000080002e0                UsageFault_Handler_C
+                0x0000000008000218      0x12c ./System/Src/cortexm/exception-handlers.o
+                0x0000000008000218                Reset_Handler
+                0x0000000008000236                HardFault_Handler_C
+                0x00000000080002ac                BusFault_Handler_C
+                0x00000000080002f4                UsageFault_Handler_C
  .after_vectors
-                0x0000000008000330        0x2 ./System/Src/CMSIS/vectors_gd32f10x.o
-                0x0000000008000330                RTC_Alarm_IRQHandler
-                0x0000000008000330                EXTI2_IRQHandler
-                0x0000000008000330                TIMER2_IRQHandler
-                0x0000000008000330                LVD_IRQHandler
-                0x0000000008000330                TIMER0_BRK_IRQHandler
-                0x0000000008000330                ADC0_1_IRQHandler
-                0x0000000008000330                TIMER0_UP_IRQHandler
-                0x0000000008000330                EXTI3_IRQHandler
-                0x0000000008000330                TIMER3_IRQHandler
-                0x0000000008000330                DMA0_Channel6_IRQHandler
-                0x0000000008000330                I2C0_EV_IRQHandler
-                0x0000000008000330                EXTI0_IRQHandler
-                0x0000000008000330                SPI1_IRQHandler
-                0x0000000008000330                DMA0_Channel0_IRQHandler
-                0x0000000008000330                TAMPER_IRQHandler
-                0x0000000008000330                DMA0_Channel3_IRQHandler
-                0x0000000008000330                I2C0_ER_IRQHandler
-                0x0000000008000330                RTC_IRQHandler
-                0x0000000008000330                DMA0_Channel2_IRQHandler
-                0x0000000008000330                USART0_IRQHandler
-                0x0000000008000330                TIMER1_IRQHandler
-                0x0000000008000330                TIMER0_TRG_CMT_IRQHandler
-                0x0000000008000330                I2C1_EV_IRQHandler
-                0x0000000008000330                EXTI10_15_IRQHandler
-                0x0000000008000330                Default_Handler
-                0x0000000008000330                WWDGT_IRQHandler
-                0x0000000008000330                EXMC_IRQHandler
-                0x0000000008000330                USBD_WKUP_IRQHandler
-                0x0000000008000330                EXTI4_IRQHandler
-                0x0000000008000330                USBD_HP_CAN0_TX_IRQHandler
-                0x0000000008000330                DMA0_Channel5_IRQHandler
-                0x0000000008000330                EXTI5_9_IRQHandler
-                0x0000000008000330                RCU_IRQHandler
-                0x0000000008000330                DMA0_Channel1_IRQHandler
-                0x0000000008000330                TIMER0_Channel_IRQHandler
-                0x0000000008000330                EXTI1_IRQHandler
-                0x0000000008000330                SPI0_IRQHandler
-                0x0000000008000330                USART2_IRQHandler
-                0x0000000008000330                CAN0_EWMC_IRQHandler
-                0x0000000008000330                USBD_LP_CAN0_RX0_IRQHandler
-                0x0000000008000330                USART1_IRQHandler
-                0x0000000008000330                I2C1_ER_IRQHandler
-                0x0000000008000330                FMC_IRQHandler
-                0x0000000008000330                DMA0_Channel4_IRQHandler
+                0x0000000008000344        0x2 ./System/Src/CMSIS/vectors_gd32f10x.o
+                0x0000000008000344                RTC_Alarm_IRQHandler
+                0x0000000008000344                EXTI2_IRQHandler
+                0x0000000008000344                TIMER2_IRQHandler
+                0x0000000008000344                LVD_IRQHandler
+                0x0000000008000344                TIMER0_BRK_IRQHandler
+                0x0000000008000344                ADC0_1_IRQHandler
+                0x0000000008000344                TIMER0_UP_IRQHandler
+                0x0000000008000344                EXTI3_IRQHandler
+                0x0000000008000344                TIMER3_IRQHandler
+                0x0000000008000344                DMA0_Channel6_IRQHandler
+                0x0000000008000344                I2C0_EV_IRQHandler
+                0x0000000008000344                EXTI0_IRQHandler
+                0x0000000008000344                SPI1_IRQHandler
+                0x0000000008000344                DMA0_Channel0_IRQHandler
+                0x0000000008000344                TAMPER_IRQHandler
+                0x0000000008000344                DMA0_Channel3_IRQHandler
+                0x0000000008000344                I2C0_ER_IRQHandler
+                0x0000000008000344                RTC_IRQHandler
+                0x0000000008000344                DMA0_Channel2_IRQHandler
+                0x0000000008000344                USART0_IRQHandler
+                0x0000000008000344                TIMER1_IRQHandler
+                0x0000000008000344                TIMER0_TRG_CMT_IRQHandler
+                0x0000000008000344                I2C1_EV_IRQHandler
+                0x0000000008000344                EXTI10_15_IRQHandler
+                0x0000000008000344                Default_Handler
+                0x0000000008000344                WWDGT_IRQHandler
+                0x0000000008000344                EXMC_IRQHandler
+                0x0000000008000344                USBD_WKUP_IRQHandler
+                0x0000000008000344                EXTI4_IRQHandler
+                0x0000000008000344                USBD_HP_CAN0_TX_IRQHandler
+                0x0000000008000344                DMA0_Channel5_IRQHandler
+                0x0000000008000344                EXTI5_9_IRQHandler
+                0x0000000008000344                RCU_IRQHandler
+                0x0000000008000344                DMA0_Channel1_IRQHandler
+                0x0000000008000344                TIMER0_Channel_IRQHandler
+                0x0000000008000344                EXTI1_IRQHandler
+                0x0000000008000344                SPI0_IRQHandler
+                0x0000000008000344                USART2_IRQHandler
+                0x0000000008000344                CAN0_EWMC_IRQHandler
+                0x0000000008000344                USBD_LP_CAN0_RX0_IRQHandler
+                0x0000000008000344                USART1_IRQHandler
+                0x0000000008000344                I2C1_ER_IRQHandler
+                0x0000000008000344                FMC_IRQHandler
+                0x0000000008000344                DMA0_Channel4_IRQHandler
 
-.inits          0x0000000008000334       0x28
-                0x0000000008000334                __data_regions_array_start = .
-                0x0000000008000334        0x4 LONG 0x8002194 LOADADDR (.data)
-                0x0000000008000338        0x4 LONG 0x20000000 ADDR (.data)
-                0x000000000800033c        0x4 LONG 0x2000007c (ADDR (.data) + SIZEOF (.data))
-                0x0000000008000340        0x4 LONG 0x8002194 LOADADDR (.data_CCMRAM)
-                0x0000000008000344        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
-                0x0000000008000348        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
-                0x000000000800034c                __data_regions_array_end = .
-                0x000000000800034c                __bss_regions_array_start = .
-                0x000000000800034c        0x4 LONG 0x2000007c ADDR (.bss)
-                0x0000000008000350        0x4 LONG 0x200001f8 (ADDR (.bss) + SIZEOF (.bss))
-                0x0000000008000354        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
-                0x0000000008000358        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
-                0x000000000800035c                __bss_regions_array_end = .
+.inits          0x0000000008000348       0x28
+                0x0000000008000348                __data_regions_array_start = .
+                0x0000000008000348        0x4 LONG 0x80021a8 LOADADDR (.data)
+                0x000000000800034c        0x4 LONG 0x20000000 ADDR (.data)
+                0x0000000008000350        0x4 LONG 0x2000007c (ADDR (.data) + SIZEOF (.data))
+                0x0000000008000354        0x4 LONG 0x80021a8 LOADADDR (.data_CCMRAM)
+                0x0000000008000358        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
+                0x000000000800035c        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
+                0x0000000008000360                __data_regions_array_end = .
+                0x0000000008000360                __bss_regions_array_start = .
+                0x0000000008000360        0x4 LONG 0x2000007c ADDR (.bss)
+                0x0000000008000364        0x4 LONG 0x200001f8 (ADDR (.bss) + SIZEOF (.bss))
+                0x0000000008000368        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
+                0x000000000800036c        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
+                0x0000000008000370                __bss_regions_array_end = .
  *(.init)
  *(.fini)
-                0x000000000800035c                . = ALIGN (0x4)
-                0x000000000800035c                PROVIDE (__preinit_array_start = .)
+                0x0000000008000370                . = ALIGN (0x4)
+                0x0000000008000370                PROVIDE (__preinit_array_start = .)
  *(.preinit_array_sysinit .preinit_array_sysinit.*)
  *(.preinit_array_platform .preinit_array_platform.*)
  *(.preinit_array .preinit_array.*)
-                0x000000000800035c                PROVIDE (__preinit_array_end = .)
-                0x000000000800035c                . = ALIGN (0x4)
-                0x000000000800035c                PROVIDE (__init_array_start = .)
+                0x0000000008000370                PROVIDE (__preinit_array_end = .)
+                0x0000000008000370                . = ALIGN (0x4)
+                0x0000000008000370                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x000000000800035c                PROVIDE (__init_array_end = .)
-                0x000000000800035c                . = ALIGN (0x4)
-                0x000000000800035c                PROVIDE (__fini_array_start = .)
+                0x0000000008000370                PROVIDE (__init_array_end = .)
+                0x0000000008000370                . = ALIGN (0x4)
+                0x0000000008000370                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
-                0x000000000800035c                PROVIDE (__fini_array_end = .)
+                0x0000000008000370                PROVIDE (__fini_array_end = .)
 
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x000000000800035c     0x1e36
+.text           0x0000000008000370     0x1e36
  *(.text .text.*)
- .text._exit    0x000000000800035c        0x2 ./System/Src/newlib/exit.o
-                0x000000000800035c                _exit
- *fill*         0x000000000800035e        0x2 
- .text._sbrk    0x0000000008000360       0x44 ./System/Src/newlib/sbrk.o
-                0x0000000008000360                _sbrk
+ .text._exit    0x0000000008000370        0x2 ./System/Src/newlib/exit.o
+                0x0000000008000370                _exit
+ *fill*         0x0000000008000372        0x2 
+ .text._sbrk    0x0000000008000374       0x44 ./System/Src/newlib/sbrk.o
+                0x0000000008000374                _sbrk
  .text.__initialize_args
-                0x00000000080003a4       0x10 ./System/Src/newlib/syscalls.o
-                0x00000000080003a4                __initialize_args
+                0x00000000080003b8       0x10 ./System/Src/newlib/syscalls.o
+                0x00000000080003b8                __initialize_args
  .text.can_deinit
-                0x00000000080003b4       0x20 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x00000000080003b4                can_deinit
+                0x00000000080003c8       0x20 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x00000000080003c8                can_deinit
  .text.can_struct_para_init
-                0x00000000080003d4       0x8e ./System/Src/gd32f10x/gd32f10x_can.o
-                0x00000000080003d4                can_struct_para_init
+                0x00000000080003e8       0x8e ./System/Src/gd32f10x/gd32f10x_can.o
+                0x00000000080003e8                can_struct_para_init
  .text.can_init
-                0x0000000008000462      0x116 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x0000000008000462                can_init
+                0x0000000008000476      0x116 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x0000000008000476                can_init
  .text.can_filter_init
-                0x0000000008000578       0xf4 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x0000000008000578                can_filter_init
+                0x000000000800058c       0xf4 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x000000000800058c                can_filter_init
  .text.can_message_transmit
-                0x000000000800066c       0xc0 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x000000000800066c                can_message_transmit
+                0x0000000008000680       0xc0 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x0000000008000680                can_message_transmit
  .text.can_message_receive
-                0x000000000800072c       0xa2 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x000000000800072c                can_message_receive
+                0x0000000008000740       0xa2 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x0000000008000740                can_message_receive
  .text.can_interrupt_enable
-                0x00000000080007ce        0x8 ./System/Src/gd32f10x/gd32f10x_can.o
-                0x00000000080007ce                can_interrupt_enable
- *fill*         0x00000000080007d6        0x2 
+                0x00000000080007e2        0x8 ./System/Src/gd32f10x/gd32f10x_can.o
+                0x00000000080007e2                can_interrupt_enable
+ *fill*         0x00000000080007ea        0x2 
  .text.exti_init
-                0x00000000080007d8       0x90 ./System/Src/gd32f10x/gd32f10x_exti.o
-                0x00000000080007d8                exti_init
+                0x00000000080007ec       0x90 ./System/Src/gd32f10x/gd32f10x_exti.o
+                0x00000000080007ec                exti_init
  .text.exti_interrupt_flag_clear
-                0x0000000008000868        0xc ./System/Src/gd32f10x/gd32f10x_exti.o
-                0x0000000008000868                exti_interrupt_flag_clear
+                0x000000000800087c        0xc ./System/Src/gd32f10x/gd32f10x_exti.o
+                0x000000000800087c                exti_interrupt_flag_clear
  .text.gpio_afio_deinit
-                0x0000000008000874       0x14 ./System/Src/gd32f10x/gd32f10x_gpio.o
-                0x0000000008000874                gpio_afio_deinit
+                0x0000000008000888       0x14 ./System/Src/gd32f10x/gd32f10x_gpio.o
+                0x0000000008000888                gpio_afio_deinit
  .text.gpio_init
-                0x0000000008000888       0x8c ./System/Src/gd32f10x/gd32f10x_gpio.o
-                0x0000000008000888                gpio_init
+                0x000000000800089c       0x8c ./System/Src/gd32f10x/gd32f10x_gpio.o
+                0x000000000800089c                gpio_init
  .text.gpio_bit_write
-                0x0000000008000914        0xa ./System/Src/gd32f10x/gd32f10x_gpio.o
-                0x0000000008000914                gpio_bit_write
+                0x0000000008000928        0xa ./System/Src/gd32f10x/gd32f10x_gpio.o
+                0x0000000008000928                gpio_bit_write
  .text.gpio_input_bit_get
-                0x000000000800091e        0xe ./System/Src/gd32f10x/gd32f10x_gpio.o
-                0x000000000800091e                gpio_input_bit_get
+                0x0000000008000932        0xe ./System/Src/gd32f10x/gd32f10x_gpio.o
+                0x0000000008000932                gpio_input_bit_get
  .text.gpio_exti_source_select
-                0x000000000800092c       0x84 ./System/Src/gd32f10x/gd32f10x_gpio.o
-                0x000000000800092c                gpio_exti_source_select
+                0x0000000008000940       0x84 ./System/Src/gd32f10x/gd32f10x_gpio.o
+                0x0000000008000940                gpio_exti_source_select
  .text.NMI_Handler
-                0x00000000080009b0        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009b0                NMI_Handler
+                0x00000000080009c4        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009c4                NMI_Handler
  .text.HardFault_Handler
-                0x00000000080009b2        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009b2                HardFault_Handler
+                0x00000000080009c6        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009c6                HardFault_Handler
  .text.MemManage_Handler
-                0x00000000080009b4        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009b4                MemManage_Handler
+                0x00000000080009c8        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009c8                MemManage_Handler
  .text.BusFault_Handler
-                0x00000000080009b6        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009b6                BusFault_Handler
+                0x00000000080009ca        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009ca                BusFault_Handler
  .text.UsageFault_Handler
-                0x00000000080009b8        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009b8                UsageFault_Handler
+                0x00000000080009cc        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009cc                UsageFault_Handler
  .text.SVC_Handler
-                0x00000000080009ba        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009ba                SVC_Handler
+                0x00000000080009ce        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009ce                SVC_Handler
  .text.DebugMon_Handler
-                0x00000000080009bc        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009bc                DebugMon_Handler
+                0x00000000080009d0        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009d0                DebugMon_Handler
  .text.PendSV_Handler
-                0x00000000080009be        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009be                PendSV_Handler
+                0x00000000080009d2        0x2 ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009d2                PendSV_Handler
  .text.CAN0_RX1_IRQHandler
-                0x00000000080009c0       0x7c ./System/Src/gd32f10x/gd32f10x_it.o
-                0x00000000080009c0                CAN0_RX1_IRQHandler
+                0x00000000080009d4       0x7c ./System/Src/gd32f10x/gd32f10x_it.o
+                0x00000000080009d4                CAN0_RX1_IRQHandler
  .text.nvic_priority_group_set
-                0x0000000008000a3c       0x14 ./System/Src/gd32f10x/gd32f10x_misc.o
-                0x0000000008000a3c                nvic_priority_group_set
+                0x0000000008000a50       0x14 ./System/Src/gd32f10x/gd32f10x_misc.o
+                0x0000000008000a50                nvic_priority_group_set
  .text.nvic_irq_enable
-                0x0000000008000a50       0x98 ./System/Src/gd32f10x/gd32f10x_misc.o
-                0x0000000008000a50                nvic_irq_enable
+                0x0000000008000a64       0x98 ./System/Src/gd32f10x/gd32f10x_misc.o
+                0x0000000008000a64                nvic_irq_enable
  .text.rcu_periph_clock_enable
-                0x0000000008000ae8       0x1c ./System/Src/gd32f10x/gd32f10x_rcu.o
-                0x0000000008000ae8                rcu_periph_clock_enable
+                0x0000000008000afc       0x1c ./System/Src/gd32f10x/gd32f10x_rcu.o
+                0x0000000008000afc                rcu_periph_clock_enable
  .text.rcu_periph_reset_enable
-                0x0000000008000b04       0x1c ./System/Src/gd32f10x/gd32f10x_rcu.o
-                0x0000000008000b04                rcu_periph_reset_enable
+                0x0000000008000b18       0x1c ./System/Src/gd32f10x/gd32f10x_rcu.o
+                0x0000000008000b18                rcu_periph_reset_enable
  .text.rcu_periph_reset_disable
-                0x0000000008000b20       0x1e ./System/Src/gd32f10x/gd32f10x_rcu.o
-                0x0000000008000b20                rcu_periph_reset_disable
+                0x0000000008000b34       0x1e ./System/Src/gd32f10x/gd32f10x_rcu.o
+                0x0000000008000b34                rcu_periph_reset_disable
  .text._trace_write_semihosting_debug
-                0x0000000008000b3e       0x60 ./System/Src/diag/trace-impl.o
+                0x0000000008000b52       0x60 ./System/Src/diag/trace-impl.o
  .text.trace_write
-                0x0000000008000b9e        0x8 ./System/Src/diag/trace-impl.o
-                0x0000000008000b9e                trace_write
- *fill*         0x0000000008000ba6        0x2 
+                0x0000000008000bb2        0x8 ./System/Src/diag/trace-impl.o
+                0x0000000008000bb2                trace_write
+ *fill*         0x0000000008000bba        0x2 
  .text.trace_printf
-                0x0000000008000ba8       0x34 ./System/Src/diag/trace.o
-                0x0000000008000ba8                trace_printf
+                0x0000000008000bbc       0x34 ./System/Src/diag/trace.o
+                0x0000000008000bbc                trace_printf
  .text.dumpExceptionStack
-                0x0000000008000bdc       0xf4 ./System/Src/cortexm/exception-handlers.o
-                0x0000000008000bdc                dumpExceptionStack
+                0x0000000008000bf0       0xf4 ./System/Src/cortexm/exception-handlers.o
+                0x0000000008000bf0                dumpExceptionStack
  .text.isSemihosting
-                0x0000000008000cd0       0x20 ./System/Src/cortexm/exception-handlers.o
-                0x0000000008000cd0                isSemihosting
+                0x0000000008000ce4       0x20 ./System/Src/cortexm/exception-handlers.o
+                0x0000000008000ce4                isSemihosting
  .text.__initialize_hardware_early
-                0x0000000008000cf0       0x18 ./System/Src/cortexm/initialize-hardware.o
-                0x0000000008000cf0                __initialize_hardware_early
+                0x0000000008000d04       0x18 ./System/Src/cortexm/initialize-hardware.o
+                0x0000000008000d04                __initialize_hardware_early
  .text.__initialize_hardware
-                0x0000000008000d08        0x8 ./System/Src/cortexm/initialize-hardware.o
-                0x0000000008000d08                __initialize_hardware
+                0x0000000008000d1c        0x8 ./System/Src/cortexm/initialize-hardware.o
+                0x0000000008000d1c                __initialize_hardware
  .text.system_clock_108m_hxtal
-                0x0000000008000d10       0xa0 ./System/Src/CMSIS/system_gd32f10x.o
+                0x0000000008000d24       0xa0 ./System/Src/CMSIS/system_gd32f10x.o
  .text.system_clock_config
-                0x0000000008000db0        0x8 ./System/Src/CMSIS/system_gd32f10x.o
+                0x0000000008000dc4        0x8 ./System/Src/CMSIS/system_gd32f10x.o
  .text.SystemInit
-                0x0000000008000db8       0x5c ./System/Src/CMSIS/system_gd32f10x.o
-                0x0000000008000db8                SystemInit
+                0x0000000008000dcc       0x5c ./System/Src/CMSIS/system_gd32f10x.o
+                0x0000000008000dcc                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008000e14       0x80 ./System/Src/CMSIS/system_gd32f10x.o
-                0x0000000008000e14                SystemCoreClockUpdate
- .text.led_on   0x0000000008000e94       0x18 ./Src/gd32f10x_eval.o
-                0x0000000008000e94                led_on
- .text.led_off  0x0000000008000eac       0x18 ./Src/gd32f10x_eval.o
-                0x0000000008000eac                led_off
+                0x0000000008000e28       0x80 ./System/Src/CMSIS/system_gd32f10x.o
+                0x0000000008000e28                SystemCoreClockUpdate
+ .text.led_on   0x0000000008000ea8       0x18 ./Src/gd32f10x_eval.o
+                0x0000000008000ea8                led_on
+ .text.led_off  0x0000000008000ec0       0x18 ./Src/gd32f10x_eval.o
+                0x0000000008000ec0                led_off
  .text.led_toggle
-                0x0000000008000ec4       0x30 ./Src/gd32f10x_eval.o
-                0x0000000008000ec4                led_toggle
+                0x0000000008000ed8       0x30 ./Src/gd32f10x_eval.o
+                0x0000000008000ed8                led_toggle
  .text.key_init
-                0x0000000008000ef4       0x80 ./Src/gd32f10x_eval.o
-                0x0000000008000ef4                key_init
+                0x0000000008000f08       0x80 ./Src/gd32f10x_eval.o
+                0x0000000008000f08                key_init
  .text.can_config
-                0x0000000008000f74       0xb0 ./Src/main.o
-                0x0000000008000f74                can_config
+                0x0000000008000f88       0xb0 ./Src/main.o
+                0x0000000008000f88                can_config
  .text.nvic_config
-                0x0000000008001024        0xe ./Src/main.o
-                0x0000000008001024                nvic_config
- *fill*         0x0000000008001032        0x2 
+                0x0000000008001038        0xe ./Src/main.o
+                0x0000000008001038                nvic_config
+ *fill*         0x0000000008001046        0x2 
  .text.gpio_config
-                0x0000000008001034       0x78 ./Src/main.o
-                0x0000000008001034                gpio_config
+                0x0000000008001048       0x78 ./Src/main.o
+                0x0000000008001048                gpio_config
  .text.LIGH_OFF
-                0x00000000080010ac       0x80 ./Src/main.o
-                0x00000000080010ac                LIGH_OFF
- .text.LIGH_ON  0x000000000800112c       0x80 ./Src/main.o
-                0x000000000800112c                LIGH_ON
+                0x00000000080010c0       0x80 ./Src/main.o
+                0x00000000080010c0                LIGH_OFF
+ .text.LIGH_ON  0x0000000008001140       0x80 ./Src/main.o
+                0x0000000008001140                LIGH_ON
  .text.LIGH_LEFT
-                0x00000000080011ac       0x80 ./Src/main.o
-                0x00000000080011ac                LIGH_LEFT
+                0x00000000080011c0       0x80 ./Src/main.o
+                0x00000000080011c0                LIGH_LEFT
  .text.LIGH_RIGH
-                0x000000000800122c       0x80 ./Src/main.o
-                0x000000000800122c                LIGH_RIGH
- .text.blink    0x00000000080012ac      0x128 ./Src/main.o
-                0x00000000080012ac                blink
+                0x0000000008001240       0x80 ./Src/main.o
+                0x0000000008001240                LIGH_RIGH
+ .text.blink    0x00000000080012c0      0x128 ./Src/main.o
+                0x00000000080012c0                blink
  .text.blink_LEFT
-                0x00000000080013d4       0xec ./Src/main.o
-                0x00000000080013d4                blink_LEFT
+                0x00000000080013e8       0xec ./Src/main.o
+                0x00000000080013e8                blink_LEFT
  .text.blink_RIGH
-                0x00000000080014c0       0xec ./Src/main.o
-                0x00000000080014c0                blink_RIGH
+                0x00000000080014d4       0xec ./Src/main.o
+                0x00000000080014d4                blink_RIGH
  .text.set_prog
-                0x00000000080015ac       0x3c ./Src/main.o
-                0x00000000080015ac                set_prog
- .text.main     0x00000000080015e8       0xe4 ./Src/main.o
-                0x00000000080015e8                main
+                0x00000000080015c0       0x3c ./Src/main.o
+                0x00000000080015c0                set_prog
+ .text.main     0x00000000080015fc       0xe4 ./Src/main.o
+                0x00000000080015fc                main
  .text.timer_start
-                0x00000000080016cc       0x3c ./Src/timer.o
-                0x00000000080016cc                timer_start
+                0x00000000080016e0       0x3c ./Src/timer.o
+                0x00000000080016e0                timer_start
  .text.timer_sleep
-                0x0000000008001708       0x14 ./Src/timer.o
-                0x0000000008001708                timer_sleep
- .text.timer_tick
                 0x000000000800171c       0x14 ./Src/timer.o
-                0x000000000800171c                timer_tick
+                0x000000000800171c                timer_sleep
+ .text.timer_tick
+                0x0000000008001730       0x14 ./Src/timer.o
+                0x0000000008001730                timer_tick
  .text.SysTick_Handler
-                0x0000000008001730        0x8 ./Src/timer.o
-                0x0000000008001730                SysTick_Handler
- .text.__errno  0x0000000008001738        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-errno.o)
-                0x0000000008001738                __errno
- .text.memcpy   0x0000000008001744       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008001744                memcpy
+                0x0000000008001744        0x8 ./Src/timer.o
+                0x0000000008001744                SysTick_Handler
+ .text.__errno  0x000000000800174c        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-errno.o)
+                0x000000000800174c                __errno
+ .text.memcpy   0x0000000008001758       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008001758                memcpy
  .text._vsnprintf_r
-                0x0000000008001760       0x58 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
-                0x0000000008001760                _vsniprintf_r
-                0x0000000008001760                _vsnprintf_r
+                0x0000000008001774       0x58 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
+                0x0000000008001774                _vsniprintf_r
+                0x0000000008001774                _vsnprintf_r
  .text.vsnprintf
-                0x00000000080017b8       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
-                0x00000000080017b8                vsniprintf
-                0x00000000080017b8                vsnprintf
+                0x00000000080017cc       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
+                0x00000000080017cc                vsniprintf
+                0x00000000080017cc                vsnprintf
  .text.__ssputs_r
-                0x00000000080017d4       0xb6 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00000000080017d4                __ssputs_r
- *fill*         0x000000000800188a        0x2 
+                0x00000000080017e8       0xb6 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000000080017e8                __ssputs_r
+ *fill*         0x000000000800189e        0x2 
  .text._svfprintf_r
-                0x000000000800188c      0x1f0 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x000000000800188c                _svfiprintf_r
-                0x000000000800188c                _svfprintf_r
+                0x00000000080018a0      0x1f0 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000000080018a0                _svfiprintf_r
+                0x00000000080018a0                _svfprintf_r
  .text._printf_common
-                0x0000000008001a7c       0xec c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000008001a7c                _printf_common
+                0x0000000008001a90       0xec c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008001a90                _printf_common
  .text._printf_i
-                0x0000000008001b68      0x22c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000008001b68                _printf_i
- .text.memchr   0x0000000008001d94       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memchr-stub.o)
-                0x0000000008001d94                memchr
- .text.memmove  0x0000000008001db0       0x34 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memmove.o)
-                0x0000000008001db0                memmove
- .text._free_r  0x0000000008001de4       0x98 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-freer.o)
-                0x0000000008001de4                _free_r
+                0x0000000008001b7c      0x22c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008001b7c                _printf_i
+ .text.memchr   0x0000000008001da8       0x1c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memchr-stub.o)
+                0x0000000008001da8                memchr
+ .text.memmove  0x0000000008001dc4       0x34 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-memmove.o)
+                0x0000000008001dc4                memmove
+ .text._free_r  0x0000000008001df8       0x98 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-freer.o)
+                0x0000000008001df8                _free_r
  .text._malloc_r
-                0x0000000008001e7c       0xb4 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x0000000008001e7c                _malloc_r
+                0x0000000008001e90       0xb4 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000000008001e90                _malloc_r
  .text._realloc_r
-                0x0000000008001f30       0x4c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-reallocr.o)
-                0x0000000008001f30                _realloc_r
- .text._sbrk_r  0x0000000008001f7c       0x20 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-sbrkr.o)
-                0x0000000008001f7c                _sbrk_r
+                0x0000000008001f44       0x4c c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-reallocr.o)
+                0x0000000008001f44                _realloc_r
+ .text._sbrk_r  0x0000000008001f90       0x20 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-sbrkr.o)
+                0x0000000008001f90                _sbrk_r
  .text.__malloc_lock
-                0x0000000008001f9c        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000000008001f9c                __malloc_lock
+                0x0000000008001fb0        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-mlock.o)
+                0x0000000008001fb0                __malloc_lock
  .text.__malloc_unlock
-                0x0000000008001fa8        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000000008001fa8                __malloc_unlock
+                0x0000000008001fbc        0xc c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-mlock.o)
+                0x0000000008001fbc                __malloc_unlock
  .text._malloc_usable_size_r
-                0x0000000008001fb4       0x10 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-msizer.o)
-                0x0000000008001fb4                _malloc_usable_size_r
+                0x0000000008001fc8       0x10 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-msizer.o)
+                0x0000000008001fc8                _malloc_usable_size_r
  .text.__retarget_lock_acquire_recursive
-                0x0000000008001fc4        0x2 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-lock.o)
-                0x0000000008001fc4                __retarget_lock_acquire_recursive
+                0x0000000008001fd8        0x2 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-lock.o)
+                0x0000000008001fd8                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000000008001fc6        0x2 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-lock.o)
-                0x0000000008001fc6                __retarget_lock_release_recursive
+                0x0000000008001fda        0x2 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-lock.o)
+                0x0000000008001fda                __retarget_lock_release_recursive
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.dumpExceptionStack.str1.4
-                0x0000000008001fc8      0x11a ./System/Src/cortexm/exception-handlers.o
- *fill*         0x00000000080020e2        0x2 
+                0x0000000008001fdc      0x11a ./System/Src/cortexm/exception-handlers.o
+ *fill*         0x00000000080020f6        0x2 
  .rodata.str1.4
-                0x00000000080020e4       0x2c ./System/Src/cortexm/exception-handlers.o
+                0x00000000080020f8       0x2c ./System/Src/cortexm/exception-handlers.o
                                          0x2a (size before relaxing)
  .rodata.GPIO_PIN
-                0x0000000008002110        0xc ./Src/gd32f10x_eval.o
+                0x0000000008002124        0xc ./Src/gd32f10x_eval.o
  .rodata.GPIO_PORT
-                0x000000000800211c        0xc ./Src/gd32f10x_eval.o
- .rodata.KEY_CLK
-                0x0000000008002128        0x6 ./Src/gd32f10x_eval.o
- *fill*         0x000000000800212e        0x2 
- .rodata.KEY_EXTI_LINE
                 0x0000000008002130        0xc ./Src/gd32f10x_eval.o
+ .rodata.KEY_CLK
+                0x000000000800213c        0x6 ./Src/gd32f10x_eval.o
+ *fill*         0x0000000008002142        0x2 
+ .rodata.KEY_EXTI_LINE
+                0x0000000008002144        0xc ./Src/gd32f10x_eval.o
  .rodata.KEY_IRQn
-                0x000000000800213c        0x3 ./Src/gd32f10x_eval.o
- *fill*         0x000000000800213f        0x1 
+                0x0000000008002150        0x3 ./Src/gd32f10x_eval.o
+ *fill*         0x0000000008002153        0x1 
  .rodata.KEY_PIN
-                0x0000000008002140        0xc ./Src/gd32f10x_eval.o
+                0x0000000008002154        0xc ./Src/gd32f10x_eval.o
  .rodata.KEY_PIN_SOURCE
-                0x000000000800214c        0x3 ./Src/gd32f10x_eval.o
- *fill*         0x000000000800214f        0x1 
+                0x0000000008002160        0x3 ./Src/gd32f10x_eval.o
+ *fill*         0x0000000008002163        0x1 
  .rodata.KEY_PORT
-                0x0000000008002150        0xc ./Src/gd32f10x_eval.o
+                0x0000000008002164        0xc ./Src/gd32f10x_eval.o
  .rodata.KEY_PORT_SOURCE
-                0x000000000800215c        0x3 ./Src/gd32f10x_eval.o
+                0x0000000008002170        0x3 ./Src/gd32f10x_eval.o
  .rodata._svfprintf_r.str1.1
-                0x000000000800215f       0x11 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008002173       0x11 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x0000000008002170       0x22 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008002184       0x22 c:/users/kovalev/appdata/roaming/xpacks/@gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7.1/.content/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0000000008002192        0x0 linker stubs
+ .glue_7        0x00000000080021a6        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008002192        0x0 linker stubs
+ .glue_7t       0x00000000080021a6        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008002194        0x0
- .vfp11_veneer  0x0000000008002194        0x0 linker stubs
+.vfp11_veneer   0x00000000080021a8        0x0
+ .vfp11_veneer  0x00000000080021a8        0x0 linker stubs
 
-.v4_bx          0x0000000008002194        0x0
- .v4_bx         0x0000000008002194        0x0 linker stubs
+.v4_bx          0x00000000080021a8        0x0
+ .v4_bx         0x00000000080021a8        0x0 linker stubs
 
-.iplt           0x0000000008002194        0x0
- .iplt          0x0000000008002194        0x0 ./System/Src/newlib/exit.o
+.iplt           0x00000000080021a8        0x0
+ .iplt          0x00000000080021a8        0x0 ./System/Src/newlib/exit.o
 
-.rel.dyn        0x0000000008002194        0x0
- .rel.iplt      0x0000000008002194        0x0 ./System/Src/newlib/exit.o
+.rel.dyn        0x00000000080021a8        0x0
+ .rel.iplt      0x00000000080021a8        0x0 ./System/Src/newlib/exit.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008002194                . = ALIGN (0x4)
-                0x0000000008002194                __exidx_start = .
+                0x00000000080021a8                . = ALIGN (0x4)
+                0x00000000080021a8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000008002194                __exidx_end = .
-                0x0000000008002194                . = ALIGN (0x4)
-                0x0000000008002194                _etext = .
-                0x0000000008002194                __etext = .
+                0x00000000080021a8                __exidx_end = .
+                0x00000000080021a8                . = ALIGN (0x4)
+                0x00000000080021a8                _etext = .
+                0x00000000080021a8                __etext = .
 
-.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008002194
+.data_CCMRAM    0x0000000010000000        0x0 load address 0x00000000080021a8
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000008002194                _sidata = LOADADDR (.data)
+                0x00000000080021a8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x7c load address 0x0000000008002194
+.data           0x0000000020000000       0x7c load address 0x00000000080021a8
  FILL mask 0xff
                 0x0000000020000000                _sdata = .
                 0x0000000020000000                __data_start__ = .
@@ -5998,7 +5998,7 @@ END GROUP
                 0x000000002000007c                _edata = .
                 0x000000002000007c                __data_end__ = .
 
-.igot.plt       0x000000002000007c        0x0 load address 0x0000000008002210
+.igot.plt       0x000000002000007c        0x0 load address 0x0000000008002224
  .igot.plt      0x000000002000007c        0x0 ./System/Src/newlib/exit.o
 
 .bss_CCMRAM     0x0000000010000000        0x0
