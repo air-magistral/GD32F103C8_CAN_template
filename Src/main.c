@@ -6,7 +6,7 @@
 #include "gd32f10x.h"
 #include "gd32f10x_eval.h"
 
-#define SIGN  0		//LEFT_RIGH
+#define SIGN  1		//LEFT_RIGH
 //#define SIGN  1		//ROAD
 
 /* select CAN baudrate */
@@ -35,16 +35,19 @@ int prog;
 int n;
 int stat = 1;
 
+int brightnes = 744; /* 25% = 744 || 50% = 2023 || 75% = 4221 || 100% =7999 */
+
 #if SIGN ==0
 uint32_t address = 0x18FFA110;
 #elif SIGN == 1
-uint32_t address=0x18FFA210;
+uint32_t address = 0x18FFA210;
 #else
 #error "please select list SIGN in private defines in main.c "
 #endif
 
 void nvic_config(void);
 void gpio_config(void);
+void timer_config(void);
 void can_config(can_parameter_struct can_parameter,
 		can_filter_parameter_struct can_filter);
 void set_prog(int);
@@ -72,15 +75,13 @@ int main(void) {
 	/* configure NVIC */
 	nvic_config();
 
-	/* configure USART */
+	/* configure timer */
+	timer_config();
+
+//	/* configure USART */
 //	gd_eval_com_init(EVAL_COM0);
-	/* configure key */
-
-	key_init(KEY_TAMPER, KEY_MODE_GPIO);
-
-	led_off(LED_LEFT);
-	led_off(LED_STROB);
-	led_off(LED_RIGH);
+//	/* configure key */
+//	key_init(KEY_TAMPER, KEY_MODE_GPIO);
 
 	/* initialize CAN and filter */
 	can_config(can_init_parameter, can_filter_parameter);
@@ -94,7 +95,7 @@ int main(void) {
 	transmit_message.tx_efid = 0x18FFA71E;
 #elif SIGN == 1
 	transmit_message.tx_efid = 0x18FFA81E;
-	#else
+#else
 	#error "please select list SIGN in private defines in main.c "
 	#endif
 
@@ -176,10 +177,12 @@ void can_config(can_parameter_struct can_parameter,
 	can_filter.filter_number = 0;
 	can_filter.filter_mode = CAN_FILTERMODE_MASK;
 	can_filter.filter_bits = CAN_FILTERBITS_32BIT;
-	can_filter.filter_list_high = (uint16_t)(0x18FFA010 >> 13);
-	can_filter.filter_list_low = (uint16_t)(((uint16_t)0x18FFA010 << 3) | (1U << 2));
-	can_filter.filter_mask_high = (uint16_t)(0x1FFFF0FF >> 13);
-	can_filter.filter_mask_low = (uint16_t)(((uint16_t)0x1FFFF0FF << 3) | (1U << 2));
+	can_filter.filter_list_high = (uint16_t) (0x18FFA010 >> 13);
+	can_filter.filter_list_low = (uint16_t) (((uint16_t) 0x18FFA010 << 3)
+			| (1U << 2));
+	can_filter.filter_mask_high = (uint16_t) (0x1FFFF0FF >> 13);
+	can_filter.filter_mask_low = (uint16_t) (((uint16_t) 0x1FFFF0FF << 3)
+			| (1U << 2));
 	can_filter.filter_fifo_number = CAN_FIFO1;
 	can_filter.filter_enable = ENABLE;
 
@@ -203,14 +206,66 @@ void gpio_config(void) {
 	rcu_periph_clock_enable(RCU_AF);
 
 	/* configure CAN0 GPIO */
-	gpio_init(GPIOA, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, GPIO_PIN_11); /* CAN_RX*/
+	gpio_init(GPIOA, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, GPIO_PIN_11); /* CAN_RX */
 	gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12); /* CAN_TX */
 
 	/* configure LED GPIO */
-	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12);
-	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13);
-	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14);
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13);
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14);
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_15);
+}
 
+void timer_config(void) {
+
+	timer_oc_parameter_struct timer_ocintpara;
+	timer_parameter_struct timer_initpara;
+
+	rcu_periph_clock_enable(RCU_TIMER0);
+
+	timer_deinit(TIMER0);
+
+	/* TIMER1 configuration */
+	timer_initpara.prescaler = 107;
+	timer_initpara.alignedmode = TIMER_COUNTER_EDGE;
+	timer_initpara.counterdirection = TIMER_COUNTER_UP;
+	timer_initpara.period = 7999;
+	timer_initpara.clockdivision = TIMER_CKDIV_DIV1;
+	timer_initpara.repetitioncounter = 0;
+	timer_init(TIMER0, &timer_initpara);
+
+	/* CH1,CH2 and CH3 configuration in PWM mode */
+	timer_ocintpara.outputstate = TIMER_CCX_ENABLE;
+	timer_ocintpara.outputnstate = TIMER_CCXN_ENABLE;
+	timer_ocintpara.ocpolarity = TIMER_OC_POLARITY_HIGH;
+	timer_ocintpara.ocnpolarity = TIMER_OCN_POLARITY_HIGH;
+	timer_ocintpara.ocidlestate = TIMER_OC_IDLE_STATE_LOW;
+	timer_ocintpara.ocnidlestate = TIMER_OCN_IDLE_STATE_LOW;
+
+	timer_channel_output_config(TIMER0, TIMER_CH_0, &timer_ocintpara);
+	timer_channel_output_config(TIMER0, TIMER_CH_1, &timer_ocintpara);
+	timer_channel_output_config(TIMER0, TIMER_CH_2, &timer_ocintpara);
+
+	timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0);
+	timer_channel_output_mode_config(TIMER0, TIMER_CH_0, TIMER_OC_MODE_PWM0);
+	timer_channel_output_shadow_config(TIMER0, TIMER_CH_0,
+	TIMER_OC_SHADOW_DISABLE);
+
+	timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0);
+	timer_channel_output_mode_config(TIMER0, TIMER_CH_1, TIMER_OC_MODE_PWM0);
+	timer_channel_output_shadow_config(TIMER0, TIMER_CH_1,
+	TIMER_OC_SHADOW_DISABLE);
+
+	timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0);
+	timer_channel_output_mode_config(TIMER0, TIMER_CH_2, TIMER_OC_MODE_PWM0);
+	timer_channel_output_shadow_config(TIMER0, TIMER_CH_2,
+	TIMER_OC_SHADOW_DISABLE);
+
+	timer_primary_output_config(TIMER0, ENABLE);
+
+	/* auto-reload preload enable */
+	timer_auto_reload_shadow_enable(TIMER0);
+	/* auto-reload preload enable */
+	timer_enable(TIMER0);
 }
 
 void set_prog(int prog_num) {
@@ -242,23 +297,23 @@ void set_prog(int prog_num) {
 void LIGH_OFF() {
 	switch (n) {
 	case 0:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 1:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 2:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n = 0;
 		break;
@@ -268,23 +323,23 @@ void LIGH_OFF() {
 void LIGH_ON() {
 	switch (n) {
 	case 0:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 1:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 2:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n = 0;
 		break;
@@ -294,23 +349,23 @@ void LIGH_ON() {
 void LIGH_LEFT() {
 	switch (n) {
 	case 0:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 1:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 2:
-		led_on(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(1000);
 		n = 0;
 		break;
@@ -320,23 +375,23 @@ void LIGH_LEFT() {
 void LIGH_RIGH() {
 	switch (n) {
 	case 0:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 1:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n++;
 		break;
 	case 2:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_on(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(1000);
 		n = 0;
 		break;
@@ -346,50 +401,50 @@ void LIGH_RIGH() {
 void blink() {
 	switch (n) {
 	case 0:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(400);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 1:
-		led_toggle(LED_LEFT);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(400);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 2:
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n = 0;
 		break;
@@ -399,40 +454,40 @@ void blink() {
 void blink_LEFT() {
 	switch (n) {
 	case 0:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
-		led_toggle(LED_LEFT);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
 		timer_sleep(400);
-		led_toggle(LED_LEFT);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 1:
-		led_toggle(LED_LEFT);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
 		timer_sleep(400);
-		led_toggle(LED_LEFT);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 2:
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
 		timer_sleep(80);
-		led_toggle(LED_LEFT);
-		led_toggle(LED_STROB);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_sleep(600);
 		n = 0;
 		break;
@@ -442,40 +497,40 @@ void blink_LEFT() {
 void blink_RIGH() {
 	switch (n) {
 	case 0:
-		led_off(LED_LEFT);
-		led_off(LED_STROB);
-		led_off(LED_RIGH);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(400);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 1:
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(400);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n++;
 		break;
 	case 2:
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
 		timer_sleep(80);
-		led_toggle(LED_STROB);
-		led_toggle(LED_RIGH);
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		timer_sleep(600);
 		n = 0;
 		break;
