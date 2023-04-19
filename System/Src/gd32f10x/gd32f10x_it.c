@@ -42,6 +42,10 @@ extern FlagStatus can0_receive_flag;
 extern can_receive_message_struct receive_message;
 extern int prog;
 extern int n;
+extern int b;
+
+extern int sign;
+
 int m, v;
 extern uint32_t address;
 /*!
@@ -147,24 +151,30 @@ void CAN0_RX1_IRQHandler(void) {
 	/* check the receive message */
 	can_message_receive(CAN0, CAN_FIFO1, &receive_message);
 
-	if ((0x18FFA110 == receive_message.rx_efid)
-			|| (0x18FFA210 == receive_message.rx_efid)) {
+	if (address == receive_message.rx_efid) {
 		can0_receive_flag = SET;
 		n = 0;
 	}
 
 	if ((address == receive_message.rx_efid)
 			&& (CAN_FF_EXTENDED == receive_message.rx_ff)
-			&& (1 == receive_message.rx_dlen)) {
+			&& (2 == receive_message.rx_dlen)) {
 		//can0_receive_flag = SET;
-		m = receive_message.rx_data[0] & 0xF;
-		if (m < 7) {
-			prog = m;
-			//n = 0;
+		sign = receive_message.rx_data[0] >> 4;
+
+		/* ----------------------------sign type----------------------------- */
+		if (sign == 1) {
+			b = receive_message.rx_data[1] & 0x3; /* set brightnes */
+			m = receive_message.rx_data[0] & 0xF; /* set prog */
+			if (m < 7) {
+				prog = m;
+				//n = 0;
+			} else {
+
+			}
 		} else {
 
 		}
-
 	}
 }
 

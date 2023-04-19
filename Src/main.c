@@ -6,9 +6,6 @@
 #include "gd32f10x.h"
 #include "gd32f10x_eval.h"
 
-#define SIGN  1		//LEFT_RIGH
-//#define SIGN  1		//ROAD
-
 /* select CAN baudrate */
 /* 1MBps */
 //#define CAN_BAUDRATE  1000
@@ -31,25 +28,21 @@ can_filter_parameter_struct can_filter_parameter;
 can_trasnmit_message_struct transmit_message;
 can_receive_message_struct receive_message;
 
+int sign;
 int prog;
 int n;
 int stat = 1;
+int b;
+int brightnes; /* 25% = 744 || 50% = 2023 || 75% = 4221 || 100% = 7999 */
 
-int brightnes = 744; /* 25% = 744 || 50% = 2023 || 75% = 4221 || 100% =7999 */
-
-#if SIGN ==0
 uint32_t address = 0x18FFA110;
-#elif SIGN == 1
-uint32_t address = 0x18FFA210;
-#else
-#error "please select list SIGN in private defines in main.c "
-#endif
 
 void nvic_config(void);
 void gpio_config(void);
 void timer_config(void);
 void can_config(can_parameter_struct can_parameter,
 		can_filter_parameter_struct can_filter);
+void set_brightnes(int);
 void set_prog(int);
 void blink(void);
 void blink_LEFT(void);
@@ -91,13 +84,8 @@ int main(void) {
 	/* initialize transmit message */
 	can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &transmit_message);
 	transmit_message.tx_sfid = 0x00;
-#if SIGN ==0
+
 	transmit_message.tx_efid = 0x18FFA71E;
-#elif SIGN == 1
-	transmit_message.tx_efid = 0x18FFA81E;
-#else
-	#error "please select list SIGN in private defines in main.c "
-	#endif
 
 	transmit_message.tx_ft = CAN_FT_DATA;
 	transmit_message.tx_ff = CAN_FF_EXTENDED;
@@ -112,18 +100,20 @@ int main(void) {
 
 		/* CAN0 receive data correctly, the received data is printed */
 		if (SET == can0_receive_flag) {
-			//can0_receive_flag = RESET;
-			if (n == 0) {
-				transmit_message.tx_data[0] = prog;
-				can_message_transmit(CAN0, &transmit_message);
-			}
+//			can0_receive_flag = RESET;
+//			if (n == 0) {
+//				transmit_message.tx_data[0] = prog;
+//				transmit_message.tx_data[1] = b;
+//				can_message_transmit(CAN0, &transmit_message);
+//			}
+			set_brightnes(b);
 			set_prog(prog);
 		}
 
-		/* CAN0 error */
-		if (SET == can0_error_flag) {
-			can0_error_flag = RESET;
-		}
+//		/* CAN0 error */
+//		if (SET == can0_error_flag) {
+//			can0_error_flag = RESET;
+//		}
 	}
 }
 
@@ -210,9 +200,9 @@ void gpio_config(void) {
 	gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12); /* CAN_TX */
 
 	/* configure LED GPIO */
-	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13);
-	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14);
-	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_15);
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13); /* LED STROB */
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14); /* LED LEFT */
+	gpio_init(GPIOB, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_15); /* LED RIGH */
 }
 
 void timer_config(void) {
@@ -266,6 +256,23 @@ void timer_config(void) {
 	timer_auto_reload_shadow_enable(TIMER0);
 	/* auto-reload preload enable */
 	timer_enable(TIMER0);
+}
+
+void set_brightnes(int brightnes_num) {
+	switch (brightnes_num) {
+	case 0:
+		brightnes = 744; /* 25% brightnes */
+		break;
+	case 1:
+		brightnes = 2023; /* 50% brightnes */
+		break;
+	case 2:
+		brightnes = 4221; /* 75% brightnes */
+		break;
+	case 3:
+		brightnes = 7999; /* 100% brightnes */
+		break;
+	}
 }
 
 void set_prog(int prog_num) {
