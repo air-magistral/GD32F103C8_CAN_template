@@ -30,10 +30,12 @@ can_receive_message_struct receive_message;
 
 int sign;
 int prog;
-int n;
+int n = 1;
 int stat = 1;
 int b;
 int brightnes; /* 25% = 744 || 50% = 2023 || 75% = 4221 || 100% = 7999 */
+
+int i;
 
 uint32_t address = 0x18FFA110;
 
@@ -99,22 +101,27 @@ int main(void) {
 	while (1) {
 
 		/* CAN0 receive data correctly, the received data is printed */
-		if (SET == can0_receive_flag) {
+		//if (SET == can0_receive_flag) {
 //			can0_receive_flag = RESET;
 //			if (n == 0) {
 //				transmit_message.tx_data[0] = prog;
 //				transmit_message.tx_data[1] = b;
 //				can_message_transmit(CAN0, &transmit_message);
 //			}
-			set_brightnes(b);
-			set_prog(prog);
-		}
+		set_brightnes(b);
+		set_prog(prog);
+
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+		n = 1;
+	}
 
 //		/* CAN0 error */
 //		if (SET == can0_error_flag) {
 //			can0_error_flag = RESET;
 //		}
-	}
+//	}
 }
 
 void can_config(can_parameter_struct can_parameter,
@@ -302,245 +309,290 @@ void set_prog(int prog_num) {
 }
 
 void LIGH_OFF() {
-	switch (n) {
-	case 0:
+	while (n == 1) {
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n = 0;
-		break;
+		timer_sleep(10);
 	}
 }
 
 void LIGH_ON() {
-	switch (n) {
-	case 0:
+	while (n == 1) {
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n = 0;
-		break;
+		timer_sleep(10);
 	}
 }
 
 void LIGH_LEFT() {
-	switch (n) {
-	case 0:
+	while (n == 1) {
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(1000);
-		n = 0;
-		break;
+		timer_sleep(10);
 	}
 }
 
 void LIGH_RIGH() {
-	switch (n) {
-	case 0:
+	while (n == 1) {
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(1000);
-		n = 0;
-		break;
+		timer_sleep(10);
 	}
 }
 
 void blink() {
-	switch (n) {
-	case 0:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n = 0;
-		break;
+	while (n == 1) {
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
 	}
 }
 
 void blink_LEFT() {
-	switch (n) {
-	case 0:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_sleep(600);
-		n = 0;
-		break;
+	while (n == 1) {
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
 	}
 }
 
 void blink_RIGH() {
-	switch (n) {
-	case 0:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 1:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(400);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n++;
-		break;
-	case 2:
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, brightnes); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(80);
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(600);
-		n = 0;
-		break;
+	while (n == 1) {
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 40) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 8) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+					brightnes); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		while (n == 1 && i <= 60) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
 	}
 }
 

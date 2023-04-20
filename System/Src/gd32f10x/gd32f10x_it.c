@@ -46,7 +46,7 @@ extern int b;
 
 extern int sign;
 
-int m, v;
+int m, v, b0, m0, b_s, m_s;
 extern uint32_t address;
 /*!
  \brief      this function handles NMI exception
@@ -151,30 +151,45 @@ void CAN0_RX1_IRQHandler(void) {
 	/* check the receive message */
 	can_message_receive(CAN0, CAN_FIFO1, &receive_message);
 
-	if (address == receive_message.rx_efid) {
-		can0_receive_flag = SET;
-		n = 0;
-	}
-
 	if ((address == receive_message.rx_efid)
 			&& (CAN_FF_EXTENDED == receive_message.rx_ff)
 			&& (2 == receive_message.rx_dlen)) {
 		//can0_receive_flag = SET;
+		can0_receive_flag = SET;
+
 		sign = receive_message.rx_data[0] >> 4;
+		b_s = receive_message.rx_data[1] & 0x3; /* brightnes */
+		m_s = receive_message.rx_data[0] & 0xF; /* prog */
 
-		/* ----------------------------sign type----------------------------- */
-		if (sign == 1) {
-			b = receive_message.rx_data[1] & 0x3; /* set brightnes */
-			m = receive_message.rx_data[0] & 0xF; /* set prog */
-			if (m < 7) {
-				prog = m;
-				//n = 0;
-			} else {
-
-			}
-		} else {
-
+		v++;
+		if (v > 250) {
+			n = 0;
+			v = 0;
 		}
+		/* ----------------------------sign type----------------------------- */
+		switch (sign) {
+		case 0:
+			if ((b != b_s) || (m != m_s)) {
+				b = b_s;
+				m = m_s;
+				if (m < 7) {
+					prog = m;
+					n = 0;
+					v = 0;
+				} else {
+				}
+			}
+			break;
+		case 1:
+			if ((b0 != b_s) || (m0 != m_s)) {
+				b0 = b_s;
+				m0 = m_s;
+				n = 0;
+				v = 0;
+			}
+			break;
+		}
+
 	}
 }
 
