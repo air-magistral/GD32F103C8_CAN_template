@@ -40,13 +40,14 @@
 
 extern FlagStatus can0_receive_flag;
 extern can_receive_message_struct receive_message;
+extern can_trasnmit_message_struct transmit_message;
 extern int prog;
 extern int n;
 extern int b;
-
+extern int v;
 extern int sign;
 
-int m, v, b0, m0, b_s, m_s;
+int m, b0, m0, b_s, m_s;
 extern uint32_t address;
 /*!
  \brief      this function handles NMI exception
@@ -179,6 +180,9 @@ void CAN0_RX1_IRQHandler(void) {
 				} else {
 				}
 			}
+			transmit_message.tx_data[0] = receive_message.rx_data[0];
+			transmit_message.tx_data[1] = receive_message.rx_data[1];
+			can_message_transmit(CAN0, &transmit_message);
 			break;
 		case 1:
 			if ((b0 != b_s) || (m0 != m_s)) {

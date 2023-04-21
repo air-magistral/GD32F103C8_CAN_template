@@ -32,7 +32,7 @@ int sign;
 int prog;
 int n = 1;
 int stat = 1;
-int b;
+int b, k, v_s, v;
 int brightnes; /* 25% = 744 || 50% = 2023 || 75% = 4221 || 100% = 7999 */
 
 int i;
@@ -115,6 +115,8 @@ int main(void) {
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
 		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
 		n = 1;
+		k = 0;
+		v_s = v;
 	}
 
 //		/* CAN0 error */
@@ -319,28 +321,92 @@ void LIGH_OFF() {
 
 void LIGH_ON() {
 	while (n == 1) {
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(10);
+		while (n == 1 && i <= 300) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
 void LIGH_LEFT() {
 	while (n == 1) {
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, brightnes); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
-		timer_sleep(10);
+		while (n == 1 && i <= 300) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+					brightnes); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, 0); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
 void LIGH_RIGH() {
 	while (n == 1) {
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
-		timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2, brightnes); /*RIGH*/
-		timer_sleep(10);
+		while (n == 1 && i <= 300) {
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1, 0); /*LEFT*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0, 0); /*STROB*/
+			timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+					brightnes); /*RIGH*/
+			timer_sleep(10);
+			i++;
+		}
+		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
@@ -435,6 +501,23 @@ void blink() {
 			i++;
 		}
 		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+				n = 0;
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
@@ -514,6 +597,22 @@ void blink_LEFT() {
 			i++;
 		}
 		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
@@ -593,6 +692,22 @@ void blink_RIGH() {
 			i++;
 		}
 		i = 0;
+		k++;
+		if (k == 6) {
+			k = 0;
+			if (v_s == v) {
+				while (n == 1 && v_s == v) {
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_1,
+							0); /*LEFT*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_0,
+							0); /*STROB*/
+					timer_channel_output_pulse_value_config(TIMER0, TIMER_CH_2,
+							0); /*RIGH*/
+				}
+			} else {
+				v_s = v;
+			}
+		}
 	}
 }
 
